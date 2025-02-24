@@ -1,0 +1,68 @@
+{func
+   ulti_settings_writer
+   {write_file $ulti_settings_path
+      {array
+         (
+            (settings
+               (precision $freq_ms)
+               (disable_dof $disable_dof)
+               (which_skybox $which_skybox)
+               (controller_mapping {save_data get_controller_mapping})
+               (disable_random_wiggles $disable_random_wiggles)
+               (disable_plots $disable_plots)
+               #ifdef HX_PS3
+               (server_url $server_url)
+               (tbrb_dlc $p9dlc)
+               #endif
+            )
+         )
+      }
+   }
+}
+{func
+   ulti_settings_reader
+   {foreach $entry {read_file $ulti_settings_path}
+      {if {== {elem $entry 0} {basename settings}}
+         {if {find $entry precision}
+            {set $freq_ms
+               {elem {find $entry precision} 1}
+            }
+         }
+         {if {find $entry disable_dof}
+            {set $disable_dof
+               {elem {find $entry disable_dof} 1}
+            }
+         }
+         {if {find $entry which_skybox}
+            {set $which_skybox
+               {elem {find $entry which_skybox} 1}
+            }
+         }
+         {if {find $entry controller_mapping}
+            {set $controller_mapping
+               {elem {find $entry controller_mapping} 1}
+            }
+         }
+         {if {find $entry disable_random_wiggles}
+            {set $disable_random_wiggles
+               {elem {find $entry disable_random_wiggles} 1}
+            }
+         }
+         {if {find $entry disable_plots}
+            {set $disable_plots
+               {elem {find $entry disable_plots} 1}
+            }
+         }
+         {if {find $entry server_url}
+            {set $server_url
+               {elem {find $entry server_url} 1}
+            }
+         }
+         {if {find $entry tbrb_dlc}
+            {set $p9dlc
+               {elem {find $entry tbrb_dlc} 1}
+            }
+         }
+      }
+   }
+}

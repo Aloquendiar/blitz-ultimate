@@ -1,0 +1,9 @@
+(wait_for_splash FALSE)
+(splash_order
+   (ulti/ultimate_mods.milo 5) ; not a fan of hex editing milos 0/10 would not do again. also one odd thing about them is that they're uncompressed by default
+   #ifdef REGION_NA
+   (ui/startup/hmx_logo_screen.milo 5)
+   (ui/startup/esrb.milo 5)
+   #else
+   (ui/startup/hmx_logo_screen.milo 5)
+   #endif)

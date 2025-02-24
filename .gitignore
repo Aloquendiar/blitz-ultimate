@@ -1,0 +1,12 @@
+
+/ignore
+*.bmp
+_build/xbox/ArcadeInfo.xml
+_build/xbox/charnames.zbm
+/_build/xbox/gen
+_build/xbox/nxeart
+/_release
+_build/ps3/PIC1.PNG
+_build/ps3/PS3LOGO.DAT
+/_build/ps3/TROPDIR
+/_build/ps3/USRDIR/gen
