@@ -15,6 +15,7 @@
       (ease_out_start 1)
       (ease_out_end 5)
       (minimum_curvature_multiplier 0.2))
+   (apply_random_wiggles {! $disable_random_wiggles})
    (random_wiggles
       (curve
          (angle
