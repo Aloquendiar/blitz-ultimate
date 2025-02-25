@@ -12,10 +12,10 @@
 {set $screenshot_path {sprint "GAME:/screenshots/_keepme"}}
 #endif
 {if_else {file_exists $ulti_settings_path}
-	{ulti_settings_reader}
-	{set $no_settings_file TRUE}
+   {ulti_settings_reader}
+   {set $no_settings_file TRUE}
 }
 {if_else {file_exists $screenshot_path}
-	{set $screenshot_path "screenshots/"}
-	{set $screenshot_path "./"}
+   {set $screenshot_path "screenshots/"}
+   {set $screenshot_path "./"}
 }
