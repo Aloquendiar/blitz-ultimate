@@ -39,6 +39,10 @@
    "Load TBRB DLC Songs: ON")
 (os_p9dlc0
    "Load TBRB DLC Songs: OFF")
+(os_hide_hud1
+   "Hide Hud: ON")
+(os_hide_hud0
+   "Hide Hud: OFF")
 (no_skybox
    "No Skybox/Black")
 (default_skybox

@@ -52,7 +52,7 @@
          {$this check_pause}})
    (blitz_hidden FALSE)
    (enter
-      {career_results_panel set started_animation FALSE} ; doesn't get reset normally without the lb data
+      #include ../ulti/ulti_game_enter.dta
       {if
          {!
             {{$this get_game}

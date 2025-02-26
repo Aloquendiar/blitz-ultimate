@@ -1,0 +1,9 @@
+{career_results_panel set started_animation FALSE} ; doesn't get reset normally without the lb data
+{if $hide_hud
+   {set_this {get_hud}}
+   {delete blitz_points.lbl} ; idk how to stop the anim so i did it like this
+   {score.lbl set_showing FALSE}
+   {hud.grp set_showing FALSE}
+   {{{$this find star_board} find draw.grp} set_showing FALSE}
+   {set_this game_screen}
+}

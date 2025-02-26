@@ -1,4 +1,8 @@
 {func
+   get_hud
+   {{game_panel get_game} get_hud_dir}
+}
+{func
    ulti_settings_writer
    {write_file $ulti_settings_path
       {array
@@ -14,6 +18,9 @@
                (server_url $server_url)
                (tbrb_dlc $p9dlc)
                #endif
+            )
+            (hud
+               (hide_hud $hide_hud)
             )
          )
       }
@@ -61,6 +68,13 @@
          {if {find $entry tbrb_dlc}
             {set $p9dlc
                {elem {find $entry tbrb_dlc} 1}
+            }
+         }
+      }
+      {if {== {elem $entry 0} {basename hud}}
+         {if {find $entry hide_hud}
+            {set $hide_hud
+               {elem {find $entry hide_hud} 1}
             }
          }
       }

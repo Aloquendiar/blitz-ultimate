@@ -17,6 +17,7 @@
             {if_else $freq_ms os_precision1 os_precision0}
             {if_else $disable_dof os_disable_dof1 os_disable_dof0}
             {if_else $disable_random_wiggles os_disable_rw1 os_disable_rw0}
+            {if_else $hide_hud os_hide_hud1 os_hide_hud0}
             "------------------------" ; under here is stuff that requires a reboot
             {if_else $which_skybox os_force_skybox1 os_force_skybox0}
             {if_else $disable_plots os_disable_plots1 os_disable_plots0}
@@ -115,6 +116,9 @@
          )
          ((os_p9dlc1 os_p9dlc0)
             {set $p9dlc {! $p9dlc}}
+         )
+         ((os_hide_hud1 os_hide_hud0)
+            {set $hide_hud {! $hide_hud}}
          )
       }
       {$this lst_reset}
