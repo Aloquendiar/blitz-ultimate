@@ -9,6 +9,7 @@ A mod for Rock Band Blitz on every platform that makes the game more much enjoya
 ## Additions
 * Fast startup
 * All power-ups available offline
+* Offline score saving
 * Calibration manually adjusts in 1ms increments
 * Controller mapping saves offline
 * Dirty disk error when loading custom songs removed (Xbox 360)
@@ -20,6 +21,7 @@ A mod for Rock Band Blitz on every platform that makes the game more much enjoya
 * Disable depth of field modifier
 * Precision mode modifier (makes blitz harder than frequency XD)
 * Disable random track wiggles modifier
+* Hide hud modifer
 * Load TBRB DLC songs modifier (PS3 ONLY)
 * Force skybox
 * Need for Speed: Most Wanted (2012) Skybox (PS3 ONLY)
