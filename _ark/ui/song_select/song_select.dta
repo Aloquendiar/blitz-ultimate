@@ -10,6 +10,7 @@
    (held_buttons)
    (enter
       ;{$this iterate Mat $m {$m set color {pack_color 0.69 0.40 0.77}}}
+      {difficulty_header.lbl set_local_pos 34.92 0.00 -78.24}
       {$this set mini_lb_mode kLeaderboardMode_Friend}
       {if
          {!
@@ -117,6 +118,7 @@
             {$songs_provider
                get_metadata
                {songs.lst selected_pos}})
+         ($online {user_mgr is_participating_user_online})
          {{$this get_mini_leaderboard}
             cancel_current_request}
          {if_else
@@ -133,6 +135,7 @@
                   {song_mgr
                      content_name
                      {$selected_song id}})
+               {difficulty_header.lbl set_showing FALSE}
                {diff_meter_rnd set_showing TRUE}
                {$this set_current_song $selected_song}
                {$this
@@ -141,6 +144,15 @@
                {set $cur_song_name {$selected_song title}} ; these maybe for a fake mtv_overlay at some point?
                {set $cur_song_artist {$selected_song artist}}
                {set $cur_song_short_name {$selected_song short_name}} ; so we can access it for screenshots
+               {set $cur_song_id {$selected_song id}}
+               {if {&& {! $online} {find $scoresArray $cur_song_id}}
+                  {do
+                     {difficulty_header.lbl set text_token
+                        {sprintf {localize personal_best_msg} {elem {find $scoresArray $cur_song_id} 1} {elem {find $scoresArray $cur_song_id} 2}}
+                     }
+                     {difficulty_header.lbl set_showing TRUE}
+                  }
+               }
                {artist.lbl set_artist_name_from_metadata $selected_song}
                {album.lbl set_album_name $selected_song}
                {genre_year.lbl
@@ -162,7 +174,7 @@
                      {song_preview stop}
                      {shell_music_panel set_mute_state TRUE}}}
                {if_else
-                  {user_mgr is_participating_user_online}
+                  $online
                   {do
                      {leaderboard_mode.ep set display_state loading}
                      {mini_leaders.lst refresh}
@@ -173,6 +185,7 @@
             {do
                ($mesh
                   {album_art find album.mesh})
+               {difficulty_header.lbl set_showing FALSE}
                {diff_meter_rnd set_showing FALSE}
                {$mesh set showing FALSE}
                {$this clear_current_song}

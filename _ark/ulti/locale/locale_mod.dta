@@ -49,3 +49,5 @@
    "Default Skybox")
 (nfs_mw2012
    "Need for Speed: Most Wanted (2012)")
+(personal_best_msg
+   "Personal Best\nScore: %d\nStars: %d")

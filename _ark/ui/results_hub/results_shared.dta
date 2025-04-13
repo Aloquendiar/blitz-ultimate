@@ -15,6 +15,21 @@
             {$song_metadata is_fake_song})
          {song_title.lbl set text_token {sprint $cur_song_name "\n" $cur_song_artist}}
          {song_title.lbl set_local_pos 0 0 221}
+         {do
+            ($score {$level_results get_score})
+            ($stars {$level_results get_stars})
+            {if_else {find $scoresArray $cur_song_id}
+               {if {< {elem {find $scoresArray $cur_song_id} 1} $score}
+                  {set_elem {find $scoresArray $cur_song_id} 1 $score}
+                  {set_elem {find $scoresArray $cur_song_id} 2 $stars}
+                  {write_file $scores_path $scoresArray}
+               }
+               {do
+                  {push_back $scoresArray {` ({, $cur_song_id} {, $score} {, $stars})}}
+                  {write_file $scores_path $scoresArray}
+               }
+            }
+         }
          {results_data.ep
             set
             score

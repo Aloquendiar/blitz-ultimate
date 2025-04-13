@@ -7,9 +7,11 @@
 (#ifdef REGION_EUROPE "NPEB00988" #else "NPUB30749" #endif)
 {set $ulti_settings_path {sprint "GD:/dev_hdd0/game/" TITLE_ID "/USRDIR/ulti_settings.ini"}}
 {set $screenshot_path {sprint "GD:/dev_hdd0/game/" TITLE_ID "/USRDIR/screenshots/_keepme"}}
+{set $scores_path {sprint "GD:/dev_hdd0/game/" TITLE_ID "/USRDIR/SCORES"}}
 #else
 {set $ulti_settings_path "GAME:/ulti_settings.ini"}
 {set $screenshot_path {sprint "GAME:/screenshots/_keepme"}}
+{set $scores_path {sprint "GAME:/SCORES"}}
 #endif
 {if_else {file_exists $ulti_settings_path}
    {ulti_settings_reader}
@@ -18,4 +20,8 @@
 {if_else {file_exists $screenshot_path}
    {set $screenshot_path "screenshots/"}
    {set $screenshot_path "./"}
+}
+{if_else {file_exists $scores_path}
+   {set $scoresArray {array {read_file $scores_path}}}
+   {set $scoresArray {array ()}}
 }
