@@ -11,6 +11,8 @@
    (enter
       ;{$this iterate Mat $m {$m set color {pack_color 0.69 0.40 0.77}}}
       {difficulty_header.lbl set_local_pos 34.92 0.00 -78.24}
+      {title.lbl set_local_pos 34.92 8.00 -116.24}
+      {title.lbl set (styles 0 font_resource) blitz_icons}
       {$this set mini_lb_mode kLeaderboardMode_Friend}
       {if
          {!
@@ -110,6 +112,11 @@
             {$this
                start_preview_audio
                {$selected_song short_name}}}})
+   (set_score_vis
+      ($showing)
+      {difficulty_header.lbl set_showing $showing}
+      {title.lbl set_showing $showing}
+   )
    (update_current_song
       {do
          ($songs_provider
@@ -119,6 +126,7 @@
                get_metadata
                {songs.lst selected_pos}})
          ($online {user_mgr is_participating_user_online})
+         {$this set_score_vis FALSE}
          {{$this get_mini_leaderboard}
             cancel_current_request}
          {if_else
@@ -135,7 +143,6 @@
                   {song_mgr
                      content_name
                      {$selected_song id}})
-               {difficulty_header.lbl set_showing FALSE}
                {diff_meter_rnd set_showing TRUE}
                {$this set_current_song $selected_song}
                {$this
@@ -145,12 +152,14 @@
                {set $cur_song_artist {$selected_song artist}}
                {set $cur_song_short_name {$selected_song short_name}} ; so we can access it for screenshots
                {set $cur_song_id {$selected_song id}}
-               {if {&& {! $online} {find $scoresArray $cur_song_id}}
-                  {do
+               {do
+                  ($score_data {find $scoresArray $cur_song_id})
+                  {if {&& {! $online} $score_data}
                      {difficulty_header.lbl set text_token
-                        {sprintf {localize personal_best_msg} {elem {find $scoresArray $cur_song_id} 1} {elem {find $scoresArray $cur_song_id} 2}}
+                        {sprintf {localize personal_best_msg} {elem $score_data 1}}
                      }
-                     {difficulty_header.lbl set_showing TRUE}
+                     {title.lbl set text_token {sprintf "star%d" {elem $score_data 2}}}
+                     {$this set_score_vis TRUE}
                   }
                }
                {artist.lbl set_artist_name_from_metadata $selected_song}
@@ -185,7 +194,6 @@
             {do
                ($mesh
                   {album_art find album.mesh})
-               {difficulty_header.lbl set_showing FALSE}
                {diff_meter_rnd set_showing FALSE}
                {$mesh set showing FALSE}
                {$this clear_current_song}

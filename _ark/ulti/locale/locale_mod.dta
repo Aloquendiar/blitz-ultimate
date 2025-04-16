@@ -50,4 +50,11 @@
 (nfs_mw2012
    "Need for Speed: Most Wanted (2012)")
 (personal_best_msg
-   "Personal Best\nScore: %d\nStars: %d")
+   "Personal Best\nScore: %d")
+(star0 "xxxxx")
+(star1 "5xxxx")
+(star2 "55xxx")
+(star3 "555xx")
+(star4 "5555x")
+(star5 "55555")
+(star6 "66666")
