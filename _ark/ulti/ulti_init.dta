@@ -2,6 +2,7 @@
 {set $moddedgame TRUE}
 {set $decode me}
 {set $unlockall TRUE}
+{set $goldprogress TRUE}
 #ifdef HX_PS3
 #define TITLE_ID
 (#ifdef REGION_EUROPE "NPEB00988" #else "NPUB30749" #endif)

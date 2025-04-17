@@ -1,0 +1,28 @@
+(beat
+   {if {&& $goldprogress $wtd}
+      {with $wtd
+         {do
+            ($stars {player_state.ep get stars})
+            {if {&& {> $stars 5} {< $stars 6}}
+               {with pers_tex
+                  {{{get_hud} find star_board} iterate RndDir $r
+                     {{$r find star_frame.mat} set diffuse_tex
+                        {cond
+                           ({>= $stars 5.9} gstar9.tex)
+                           ({>= $stars 5.8} gstar8.tex)
+                           ({>= $stars 5.7} gstar7.tex)
+                           ({>= $stars 5.6} gstar6.tex)
+                           ({>= $stars 5.5} gstar5.tex)
+                           ({>= $stars 5.4} gstar4.tex)
+                           ({>= $stars 5.3} gstar3.tex)
+                           ({>= $stars 5.2} gstar2.tex)
+                           gstar1.tex
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+)

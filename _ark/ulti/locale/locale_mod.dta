@@ -1,56 +1,32 @@
 #include locale_sources.dta
-(screenshot_taken
-   "Screenshot Saved")
-(take_screenshot
-   "Save Screenshot")
-(mod_settings
-   "Mod Settings")
-(server_url
-   "Enter URL/IP to a custom server (NOT TESTED)")
-(os_unlock_all1
-   "Unlock All: ON")
-(os_unlock_all0
-   "Unlock All: OFF")
-(os_precision1
-   "Precision Mode: ON")
-(os_precision0
-   "Precision Mode: OFF")
-(os_disable_dof1
-   "Disable Depth of Field: ON")
-(os_disable_dof0
-   "Disable Depth of Field: OFF")
-(os_disable_rw1
-   "Disable Random Track Wiggles: ON")
-(os_disable_rw0
-   "Disable Random Track Wiggles: OFF")
-(os_force_skybox1
-   "Force Skybox: ON")
-(os_force_skybox0
-   "Force Skybox: OFF")
-(os_disable_plots1
-   "Disable Plots: ON")
-(os_disable_plots0
-   "Disable Plots: OFF")
-(os_server_url1
-   "Redirect Rock Central URL: ON")
-(os_server_url0
-   "Redirect Rock Central URL: OFF")
-(os_p9dlc1
-   "Load TBRB DLC Songs: ON")
-(os_p9dlc0
-   "Load TBRB DLC Songs: OFF")
-(os_hide_hud1
-   "Hide Hud: ON")
-(os_hide_hud0
-   "Hide Hud: OFF")
-(no_skybox
-   "No Skybox/Black")
-(default_skybox
-   "Default Skybox")
-(nfs_mw2012
-   "Need for Speed: Most Wanted (2012)")
-(personal_best_msg
-   "Personal Best\nScore: %d")
+(screenshot_taken "Screenshot Saved")
+(take_screenshot "Save Screenshot")
+(mod_settings "Mod Settings")
+(server_url "Enter URL/IP to a custom server (NOT TESTED)")
+(os_unlock_all1 "Unlock All: ON")
+(os_unlock_all0 "Unlock All: OFF")
+(os_precision1 "Precision Mode: ON")
+(os_precision0 "Precision Mode: OFF")
+(os_disable_dof1 "Disable Depth of Field: ON")
+(os_disable_dof0 "Disable Depth of Field: OFF")
+(os_disable_rw1 "Disable Random Track Wiggles: ON")
+(os_disable_rw0 "Disable Random Track Wiggles: OFF")
+(os_force_skybox1 "Force Skybox: ON")
+(os_force_skybox0 "Force Skybox: OFF")
+(os_disable_plots1 "Disable Plots: ON")
+(os_disable_plots0 "Disable Plots: OFF")
+(os_server_url1 "Redirect Rock Central URL: ON")
+(os_server_url0 "Redirect Rock Central URL: OFF")
+(os_p9dlc1 "Load TBRB DLC Songs: ON")
+(os_p9dlc0 "Load TBRB DLC Songs: OFF")
+(os_hide_hud1 "Hide Hud: ON")
+(os_hide_hud0 "Hide Hud: OFF")
+(os_goldprogress1 "Show Gold Star Progress: ON")
+(os_goldprogress0 "Show Gold Star Progress: OFF")
+(no_skybox "No Skybox/Black")
+(default_skybox "Default Skybox")
+(nfs_mw2012 "Need for Speed: Most Wanted (2012)")
+(personal_best_msg "Personal Best\nScore: %d")
 (star0 "xxxxx")
 (star1 "5xxxx")
 (star2 "55xxx")

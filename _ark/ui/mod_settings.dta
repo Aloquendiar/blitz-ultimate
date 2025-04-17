@@ -1,23 +1,20 @@
-{new
-   UIPanel
+{new UIPanel
    mod_settings_panel
-   (file
-      "pause/pause.milo")
+   (file "pause/pause.milo")
    (focus pause.lst)
    (enter
       {pause.lbl set text_token mod_settings}
       {$this lst_reset}
-      {$this
-         update_focus
-         [get_focus]})
+      {$this update_focus [get_focus]}
+   )
    (lst_reset
-      {pause.lst
-         set_data
+      {pause.lst set_data
          (
             {if_else $freq_ms os_precision1 os_precision0}
             {if_else $disable_dof os_disable_dof1 os_disable_dof0}
             {if_else $disable_random_wiggles os_disable_rw1 os_disable_rw0}
             {if_else $hide_hud os_hide_hud1 os_hide_hud0}
+            {if_else $goldprogress os_goldprogress1 os_goldprogress0}
             "------------------------" ; under here is stuff that requires a reboot
             {if_else $which_skybox os_force_skybox1 os_force_skybox0}
             {if_else $disable_plots os_disable_plots1 os_disable_plots0}
@@ -29,28 +26,19 @@
          )
       }
    )
-   (get_focus
-      {{$this loaded_dir}
-         get
-         focus_component})
+   (get_focus {{$this loaded_dir} get focus_component})
    (update_focus
       ($new_focus)
       {$this set_focus $new_focus}
       {$this update_shown_lists pause.lst}
-      {$this update_shown_lists options.lst})
+      {$this update_shown_lists options.lst}
+   )
    (update_shown_lists
       ($list)
-      {$list
-         set
-         showing
-         {==
-            $list
-            [get_focus]}})
+      {$list set showing {== $list [get_focus]}}
+   )
    (handle_cancel_press
-      {if_else
-         {==
-            options.lst
-            [get_focus]}
+      {if_else {== options.lst [get_focus]}
          {$this update_focus pause.lst}
          {do
             #ifndef HX_3DS
@@ -59,31 +47,26 @@
             {ui pop_screen}
             {if $frompause
                {set $frompause FALSE}
-               {pause_panel set_showing TRUE}}}})
+               {pause_panel set_showing TRUE}
+            }
+         }
+      }
+   )
    (BUTTON_DOWN_MSG
-      {switch
-         $action
-         (kAction_Cancel
-            {$this handle_cancel_press})
-         (kAction_ViewModify
-            {$this handle_cancel_press})
+      {switch $action
+         (kAction_Cancel {$this handle_cancel_press})
+         (kAction_ViewModify {$this handle_cancel_press})
          (kAction_Start
-            {$this
-               component_select
-               [get_focus]
-               {user_mgr get_participating_user}}
-            {if
-               {==
-                  {[get_focus]
-                     selected_sym}
-                  pause_resume}
-               {{ui current_screen}
-                  resume}})
-         kDataUnhandled})
+            {$this component_select [get_focus] {user_mgr get_participating_user}}
+            {if {== {[get_focus] selected_sym} pause_resume}
+               {{ui current_screen} resume}
+            }
+         )
+         kDataUnhandled
+      }
+   )
    (SELECT_MSG
-      {switch
-         {[get_focus]
-            selected_sym}
+      {switch {[get_focus] selected_sym}
          ((os_unlock_all1 os_unlock_all0)
             {set $unlockall {! $unlockall}}
          )
@@ -104,8 +87,7 @@
             {set $disable_plots {! $disable_plots}}
          )
          ((os_server_url1 os_server_url0)
-            {virtual_keyboard
-               show_keyboard
+            {virtual_keyboard show_keyboard
                $user
                50
                {localize server_url}
@@ -120,32 +102,31 @@
          ((os_hide_hud1 os_hide_hud0)
             {set $hide_hud {! $hide_hud}}
          )
+         ((os_goldprogress1 os_goldprogress0)
+            {set $goldprogress {! $goldprogress}}
+         )
       }
       {$this lst_reset}
    )
    (VIRTUAL_KEYBOARD_RESULT_MSG
-      {if 
-         {&& $ok $this}
+      {if {&& $ok $this}
          {set $server_url $text}
       }
       {$this lst_reset}
    )
 }
-{new
-   UIScreen
+{new UIScreen
    mod_settings_screen
    (panels mod_settings_panel)
-   (focus mod_settings_panel)}
-{new
-   UIPanel
+   (focus mod_settings_panel)
+}
+{new UIPanel
    mod_force_skybox_panel
-   (file
-      "pause/pause.milo")
+   (file "pause/pause.milo")
    (focus pause.lst)
    (enter
       {pause.lbl set text_token os_force_skybox}
-      {pause.lst
-         set_data
+      {pause.lst set_data
          (
             default_skybox
             no_skybox
@@ -154,49 +135,39 @@
             #endif
          )
       }
-      {$this
-         update_focus
-         [get_focus]})
-   (get_focus
-      {{$this loaded_dir}
-         get
-         focus_component})
+      {$this update_focus [get_focus]}
+   )
+   (get_focus {{$this loaded_dir} get focus_component})
    (update_focus
       ($new_focus)
       {$this set_focus $new_focus}
       {$this update_shown_lists pause.lst}
-      {$this update_shown_lists options.lst})
+      {$this update_shown_lists options.lst}
+   )
    (update_shown_lists
       ($list)
-      {$list
-         set
-         showing
-         {==
-            $list
-            [get_focus]}})
+      {$list set showing {== $list [get_focus]}}
+   )
    (handle_cancel_press
-      {if_else
-         {==
-            options.lst
-            [get_focus]}
+      {if_else {== options.lst [get_focus]}
          {$this update_focus pause.lst}
          {do
             {ui pop_screen}
             {mod_settings_panel lst_reset}
-            {mod_settings_panel set_showing TRUE}}})
+            {mod_settings_panel set_showing TRUE}
+         }
+      }
+   )
    (BUTTON_DOWN_MSG
-      {switch
-         $action
-         (kAction_Cancel
-            {$this handle_cancel_press})
-         (kAction_ViewModify
-            {$this handle_cancel_press})
-         kDataUnhandled})
+      {switch $action
+         (kAction_Cancel {$this handle_cancel_press})
+         (kAction_ViewModify {$this handle_cancel_press})
+         kDataUnhandled
+      }
+   )
    (SELECT_MSG
       {set $which_skybox
-         {switch
-            {[get_focus]
-               selected_sym}
+         {switch {[get_focus] selected_sym}
             (default_skybox 0)
             (no_skybox 1)
             (nfs_mw2012 2)
@@ -205,8 +176,8 @@
       {$this handle_cancel_press}
    )
 }
-{new
-   UIScreen
+{new UIScreen
    mod_force_skybox_screen
    (panels mod_force_skybox_panel)
-   (focus mod_force_skybox_panel)}
+   (focus mod_force_skybox_panel)
+}
