@@ -23,6 +23,8 @@
 (os_hide_hud0 "Hide Hud: OFF")
 (os_goldprogress1 "Show Gold Star Progress: ON")
 (os_goldprogress0 "Show Gold Star Progress: OFF")
+(os_progressbar1 "Show Song Progress Bar: ON")
+(os_progressbar0 "Show Song Progress Bar: OFF")
 (no_skybox "No Skybox/Black")
 (default_skybox "Default Skybox")
 (nfs_mw2012 "Need for Speed: Most Wanted (2012)")

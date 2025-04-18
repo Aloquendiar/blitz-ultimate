@@ -1,5 +1,14 @@
 {career_results_panel set started_animation FALSE} ; doesn't get reset normally without the lb data
 {with {get_hud}
+   {if {! {exists progress_bar.sld}}
+      {new UISlider progress_bar.sld}
+      {progress_bar.sld set slider_resource progress_bar}
+      {progress_bar.sld set_num_steps 100}
+      {{band_meter_hud find draw.grp} add_object progress_bar.sld}
+      {progress_bar.sld set_local_pos -413.50 -1.00 -84.00}
+      {progress_bar.sld set_local_rot 0 -90 0}
+      {progress_bar.sld set_showing $progressbar}
+   }
    {gem_smasher_red.tex iterate_refs $ref {set $wtd {{{{$ref dir} dir} dir} dir}}}
    {if $hide_hud
       {delete blitz_points.lbl} ; idk how to stop the anim so i did it like this

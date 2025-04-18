@@ -1,6 +1,7 @@
-(beat
-   {if {&& $goldprogress $wtd}
-      {with $wtd
+(sixteenth_note
+   {with $wtd
+      {{{get_hud} find progress_bar.sld} set_current {int {* {song_state.ep get song_ratio} 100}}}
+      {if $goldprogress
          {do
             ($stars {player_state.ep get stars})
             {if {&& {> $stars 5} {< $stars 6}}

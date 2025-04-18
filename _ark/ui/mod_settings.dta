@@ -15,6 +15,7 @@
             {if_else $disable_random_wiggles os_disable_rw1 os_disable_rw0}
             {if_else $hide_hud os_hide_hud1 os_hide_hud0}
             {if_else $goldprogress os_goldprogress1 os_goldprogress0}
+            {if_else $progressbar os_progressbar1 os_progressbar0}
             "------------------------" ; under here is stuff that requires a reboot
             {if_else $which_skybox os_force_skybox1 os_force_skybox0}
             {if_else $disable_plots os_disable_plots1 os_disable_plots0}
@@ -104,6 +105,9 @@
          )
          ((os_goldprogress1 os_goldprogress0)
             {set $goldprogress {! $goldprogress}}
+         )
+         ((os_progressbar1 os_progressbar0)
+            {set $progressbar {! $progressbar}}
          )
       }
       {$this lst_reset}
