@@ -17,6 +17,7 @@
                (force_plot $forceplot)
                #ifdef HX_PS3
                (server_url $server_url)
+               (server_ssl $server_ssl)
                (tbrb_dlc $p9dlc)
                #endif
             )

@@ -1,6 +1,8 @@
 #define CUSTOMSOURCE (1)
 {set $moddedgame TRUE}
+{set $patched TRUE}
 {set $decode me}
+{set $server_ssl TRUE}
 {set $unlockall TRUE}
 {set $goldprogress TRUE}
 {set $progressbar TRUE}
@@ -56,6 +58,11 @@
          {if {find $entry server_url}
             {set $server_url
                {elem {find $entry server_url} 1}
+            }
+         }
+         {if {find $entry server_ssl}
+            {set $server_ssl
+               {elem {find $entry server_ssl} 1}
             }
          }
          {if {find $entry tbrb_dlc}

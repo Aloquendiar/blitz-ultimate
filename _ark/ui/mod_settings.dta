@@ -22,6 +22,7 @@
             {if_else $unlockall os_unlock_all1 os_unlock_all0}
             #ifdef HX_PS3
             {if_else $server_url os_server_url1 os_server_url0}
+            {if_else $server_ssl os_server_ssl1 os_server_ssl0}
             {if_else $p9dlc os_p9dlc1 os_p9dlc0}
             #endif
          )
@@ -97,6 +98,9 @@
                {if_else $server_url $server_url "example.com"}
                $this
             }
+         )
+         ((os_server_ssl1 os_server_ssl0)
+            {set $server_ssl {! $server_ssl}}
          )
          ((os_p9dlc1 os_p9dlc0)
             {set $p9dlc {! $p9dlc}}
