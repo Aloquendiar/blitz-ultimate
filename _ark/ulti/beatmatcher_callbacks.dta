@@ -1,5 +1,13 @@
 (sixteenth_note
    {with $wtd
+      {if {&& $pb {! $pbn} {> {player_state.ep get score} $pb}}
+         {set $pbn TRUE}
+         {{{get_hud} find pb.tnm} animate
+            (units kTaskSeconds)
+            (period 4)
+            (range 0 1)
+         }
+      }
       {{{get_hud} find progress_bar.sld} set_current {int {* {song_state.ep get song_ratio} 100}}}
       {if $goldprogress
          {do

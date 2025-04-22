@@ -16,6 +16,7 @@
             {if_else $hide_hud os_hide_hud1 os_hide_hud0}
             {if_else $goldprogress os_goldprogress1 os_goldprogress0}
             {if_else $progressbar os_progressbar1 os_progressbar0}
+            {if_else $show_pb os_show_pb1 os_show_pb0}
             "------------------------" ; under here is stuff that requires a reboot
             {if_else $which_skybox os_force_skybox1 os_force_skybox0}
             os_plot_settings
@@ -113,6 +114,9 @@
          )
          ((os_progressbar1 os_progressbar0)
             {set $progressbar {! $progressbar}}
+         )
+         ((os_show_pb1 os_show_pb0)
+            {set $show_pb {! $show_pb}}
          )
       }
       {$this lst_reset}

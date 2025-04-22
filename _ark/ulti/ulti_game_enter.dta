@@ -8,8 +8,19 @@
       {progress_bar.sld set_local_pos -413.50 -1.00 -84.00}
       {progress_bar.sld set_local_rot 0 -90 0}
       {progress_bar.sld set_showing $progressbar}
+      {ulti_error_handover handover}
+      {pb.lbl set_token_fmt new_pb}
+      {hud.grp add_object pb.lbl}
+      {new TransAnim pb.tnm}
+      {pb.tnm set_trans pb.lbl}
+      {pb.tnm set_trans_spline TRUE}
+      {pb.tnm add_trans_key -325 0 260 0}
+      {pb.tnm add_trans_key -325 0 230 0.25}
+      {pb.tnm add_trans_key -325 0 260 1}
+      {pb.tnm set_frame 0}
+      {set $pbn FALSE}
+      {gem_smasher_red.tex iterate_refs $ref {set $wtd {{{{$ref dir} dir} dir} dir}}}
    }
-   {gem_smasher_red.tex iterate_refs $ref {set $wtd {{{{$ref dir} dir} dir} dir}}}
    {if $hide_hud
       {delete blitz_points.lbl} ; idk how to stop the anim so i did it like this
       {score.lbl set_showing FALSE}

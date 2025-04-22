@@ -6,6 +6,7 @@
 {set $unlockall TRUE}
 {set $goldprogress TRUE}
 {set $progressbar TRUE}
+{set $show_pb TRUE}
 #ifdef HX_PS3
 #define TITLE_ID
 (#ifdef REGION_EUROPE "NPEB00988" #else "NPUB30749" #endif)
@@ -85,6 +86,11 @@
          {if {find $entry song_progress_bar}
             {set $progressbar
                {elem {find $entry song_progress_bar} 1}
+            }
+         }
+         {if {find $entry show_personal_best}
+            {set $show_pb
+               {elem {find $entry show_personal_best} 1}
             }
          }
       }

@@ -152,6 +152,7 @@
                {set $cur_song_artist {$selected_song artist}}
                {set $cur_song_short_name {$selected_song short_name}} ; so we can access it for screenshots
                {set $cur_song_id {$selected_song id}}
+               {set $pb FALSE}
                {do
                   ($score_data {find $scoresArray $cur_song_id})
                   {if {&& {! $online} $score_data}
@@ -160,6 +161,7 @@
                      }
                      {title.lbl set text_token {sprintf "star%d" {elem $score_data 2}}}
                      {$this set_score_vis TRUE}
+                     {if $show_pb {set $pb {elem $score_data 1}}}
                   }
                }
                {artist.lbl set_artist_name_from_metadata $selected_song}

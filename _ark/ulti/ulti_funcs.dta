@@ -25,6 +25,7 @@
                (hide_hud $hide_hud)
                (gold_star_progress $goldprogress)
                (song_progress_bar $progressbar)
+               (show_personal_best $show_pb)
             )
          )
       }
