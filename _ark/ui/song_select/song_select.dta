@@ -284,6 +284,7 @@
                      {set $cur_song_name {$song title}}
                      {set $cur_song_artist {$song artist}}
                      {set $cur_song_short_name {$song short_name}}
+                     {set $cur_song_id {$song id}}
                      #ifndef HX_PS3
                      {$this mount_current_content {$song id}}
                      #endif
