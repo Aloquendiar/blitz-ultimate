@@ -8,7 +8,10 @@
       {progress_bar.sld set_local_pos -413.50 -1.00 -84.00}
       {progress_bar.sld set_local_rot 0 -90 0}
       {progress_bar.sld set_showing $progressbar}
-      {ulti_error_handover handover}
+      {new UILabel pb.lbl}
+      {pb.lbl copy {error_popup_panel find error.lbl} kCopyDeep}
+      {new UILabel streak.lbl}
+      {streak.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {pb.lbl set_token_fmt new_pb}
       {streak.lbl set_int 0}
       {streak.lbl set_local_pos {if_else $show_steak -406 -500} 0.00 -120.00}
