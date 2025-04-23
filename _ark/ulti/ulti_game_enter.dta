@@ -14,7 +14,9 @@
       {streak.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {pb.lbl set_token_fmt new_pb}
       {streak.lbl set_int 0}
-      {streak.lbl set_local_pos {if_else $show_steak -406 -500} 0.00 -120.00}
+      {streak.lbl set_local_pos {if_else $show_steak -406.50 -500} 0.00 -115.00}
+      {streak.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
+      {streak.lbl set (styles 0 text_size) 12}
       {hud.grp add_object pb.lbl}
       {hud.grp add_object streak.lbl}
       {new TransAnim pb.tnm}
