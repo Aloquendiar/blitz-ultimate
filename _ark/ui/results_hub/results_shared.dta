@@ -23,10 +23,12 @@
                   {set_elem {find $scoresArray $cur_song_id} 1 $score}
                   {set_elem {find $scoresArray $cur_song_id} 2 $stars}
                   {write_file $scores_path $scoresArray}
+                  {save_data update_star_rating $cur_song_id $stars}
                }
                {do
                   {push_back $scoresArray {` ({, $cur_song_id} {, $score} {, $stars})}}
                   {write_file $scores_path $scoresArray}
+                  {save_data update_star_rating $cur_song_id $stars}
                }
             }
          }
