@@ -26,6 +26,6 @@
    (file "error_general.milo")
    (handover
       {error.lbl set_name pb.lbl {get_hud}}
-      ;{continue.lbl set_name unused.lbl {get_hud}}
+      {continue.lbl set_name streak.lbl {get_hud}}
    )
 }

@@ -10,7 +10,10 @@
       {progress_bar.sld set_showing $progressbar}
       {ulti_error_handover handover}
       {pb.lbl set_token_fmt new_pb}
+      {streak.lbl set_int 0}
+      {streak.lbl set_local_pos {if_else $show_steak -406 -500} 0.00 -120.00}
       {hud.grp add_object pb.lbl}
+      {hud.grp add_object streak.lbl}
       {new TransAnim pb.tnm}
       {pb.tnm set_trans pb.lbl}
       {pb.tnm set_trans_spline TRUE}
@@ -27,4 +30,49 @@
       {hud.grp set_showing FALSE}
       {{star_board find draw.grp} set_showing FALSE}
    }
+}
+{with $wtd
+   {new Object
+      player_state_callbacks
+      (leave_song
+         {if {exists check_pass}
+            {delete check_pass}
+         }
+      )
+      (gem_hit
+         ($track_index $bonus $fire $mine $letter $crit $lane)
+         {unless {exists check_pass} {$this gen_task}}
+         {++ [note_streak]}
+         {$this update_lbl}
+      )
+      (miss
+         ($track_index $miss_track_type $lane)
+         {$this on_mp}
+      )
+      (on_mp
+         {set [note_streak] 0}
+         {$this update_lbl}
+      )
+      (gen_task
+         {thread_task kTaskBeats
+            (name check_pass)
+            (script
+               {with $wtd
+                  {do
+                     ($per {player_state.ep get blitz_percentage})
+                     {if {> $prevper $per}
+                        {player_state_callbacks on_mp}
+                     }
+                     {set $prevper $per}
+                  }
+               }
+               {$task sleep 0.0001}
+               {$task loop}
+            )
+         }
+      )
+      (update_lbl {{{get_hud} find streak.lbl} set_int [note_streak] TRUE})
+      (note_streak)
+   }
+   {player_state.ep add_sink player_state_callbacks (leave_song gem_hit miss)}
 }

@@ -27,6 +27,8 @@
 (os_progressbar0 "Show Song Progress Bar: OFF")
 (os_show_pb1 "Show Personal Best: ON")
 (os_show_pb0 "Show Personal Best: OFF")
+(os_show_steak1 "Show Note Streak: ON")
+(os_show_steak0 "Show Note Streak: OFF")
 (os_plot_settings "Plot Settings")
 (os_disable_plots1 "Disable Plots: ON")
 (os_disable_plots0 "Disable Plots: OFF")

@@ -7,6 +7,7 @@
 {set $goldprogress TRUE}
 {set $progressbar TRUE}
 {set $show_pb TRUE}
+{set $show_steak TRUE}
 #ifdef HX_PS3
 #define TITLE_ID
 (#ifdef REGION_EUROPE "NPEB00988" #else "NPUB30749" #endif)
@@ -91,6 +92,11 @@
          {if {find $entry show_personal_best}
             {set $show_pb
                {elem {find $entry show_personal_best} 1}
+            }
+         }
+         {if {find $entry show_steak}
+            {set $show_steak
+               {elem {find $entry show_steak} 1}
             }
          }
       }
