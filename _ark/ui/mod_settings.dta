@@ -132,9 +132,7 @@
          (
             default_skybox
             no_skybox
-            #ifdef HX_PS3
             nfs_mw2012
-            #endif
          )
       }
       {$this update_focus [get_focus]}

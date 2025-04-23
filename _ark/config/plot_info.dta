@@ -9,9 +9,7 @@
    (which_skybox
       {switch $which_skybox
          (1)
-         #ifdef HX_PS3 ; i couldn't get cylinder_skybox.tex starting at 0x65381, ending at 0x8FE00 and with a size of 174720 bytes to edit on xbox
-         (2 mw2012_skybox) ; i also couldn't get the sun to go away. deleting the mesh just made it static.
-         #endif
+         (2 mw2012_skybox) ; had to replace FW_Smoke.tex to get it to work right on xbox. i also couldn't get the sun to go away. renaming the mesh just made it static.
          default_skybox ; fallback
       }
    )
