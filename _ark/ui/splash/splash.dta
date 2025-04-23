@@ -22,11 +22,8 @@
                {console_data set_overscan_enabled TRUE}
             }
          }
-         {unless $scoresloaded
-            {foreach $score $scoresArray
-               {save_data update_star_rating {elem $score 0} {elem $score 2}} ; i was literally at a loss for words when i discovered this command. THANK YOU HARMONIX I LOVE YOU!!!!!! 
-            }
-            {set $scoresloaded TRUE}
+         {foreach $score $scoresArray
+            {save_data update_star_rating {elem $score 0} {elem $score 2}} ; i was literally at a loss for words when i discovered this command. THANK YOU HARMONIX I LOVE YOU!!!!!! 
          }
          {if $unlockall
             {{user_mgr get_participating_user} set_unlock_all}
