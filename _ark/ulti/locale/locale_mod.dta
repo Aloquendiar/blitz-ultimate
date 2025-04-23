@@ -19,6 +19,7 @@
 (os_server_ssl0 "Use SSL Encryption: OFF")
 (os_p9dlc1 "Load TBRB DLC Songs: ON")
 (os_p9dlc0 "Load TBRB DLC Songs: OFF")
+(os_hud_settings "Hud Settings")
 (os_hide_hud1 "Hide Hud: ON")
 (os_hide_hud0 "Hide Hud: OFF")
 (os_goldprogress1 "Show Gold Star Progress: ON")
