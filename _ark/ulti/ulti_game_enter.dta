@@ -37,7 +37,7 @@
 {with $wtd
    {new Object
       player_state_callbacks
-      (leave_song
+      (end_song
          {if {exists check_pass}
             {delete check_pass}
          }
@@ -77,5 +77,5 @@
       (update_lbl {{{get_hud} find streak.lbl} set_int [note_streak] TRUE})
       (note_streak)
    }
-   {player_state.ep add_sink player_state_callbacks (leave_song gem_hit miss)}
+   {player_state.ep add_sink player_state_callbacks (end_song gem_hit miss)}
 }
