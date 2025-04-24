@@ -14,6 +14,17 @@ else
     ARKHELPER_PATH="$(pwd)/dependencies/linux/arkhelper"
 fi
 
+# Move Xbox files out of ark to reduce file size
+echo "Moving Xbox files out of ark"
+find "$PWD/_ark" -type f -name "*.*_xbox" | while read -r filepath; do
+   relative_path="${filepath#$PWD/_ark/}"
+   dest_path="$PWD/_temp/$relative_path"
+
+   mkdir -p "$(dirname "$dest_path")"
+
+   mv "$filepath" "$dest_path"
+done
+
 # Building PS3 ARK
 echo
 echo "Building PS3 ARK"
@@ -21,6 +32,21 @@ echo "Building PS3 ARK"
 if [ $? -ne 0 ]; then
     FAILED_ARK_BUILD=1
 fi
+
+echo "Moving Xbox files back"
+for folder in "$PWD/_temp"/*; do
+  [ -d "$folder" ] || continue
+  name=$(basename "$folder")
+
+  find "$folder" -type f | while read -r f; do
+    rel_path=${f#"$folder/"}
+    dest="$PWD/_ark/$name/$rel_path"
+    mv "$f" "$dest"
+  done
+
+done
+
+rm -r "$PWD/_temp"
 
 # Check if the ARK build failed and provide appropriate message
 echo
