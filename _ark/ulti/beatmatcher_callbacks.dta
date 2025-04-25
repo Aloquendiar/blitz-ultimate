@@ -1,4 +1,12 @@
 (sixteenth_note
+   {unless $timeranim
+      {{{get_hud} find timer.tnm} animate
+         (units kTaskSeconds)
+         (period 1)
+         (range 0 1)
+      }
+      {set $timeranim TRUE}
+   }
    {with $wtd
       {if {&& $pb {! $pbn} {> {player_state.ep get score} $pb}}
          {set $pbn TRUE}
@@ -9,6 +17,16 @@
          }
       }
       {{{get_hud} find progress_bar.sld} set_current {int {* {song_state.ep get song_ratio} 100}}}
+      {do
+         ($beat {song_state.ep get current_beat})
+         {unless {> $beat $end_beat}
+            {{{get_hud} find timer.lbl} set_token_fmt
+               song_timer
+               {seconds_to_time {beat_to_seconds $beat}}
+               $song_length_display
+            }
+         }
+      }
       {if $goldprogress
          {do
             ($stars {player_state.ep get stars})

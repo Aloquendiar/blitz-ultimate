@@ -196,6 +196,7 @@
             {if_else $hide_hud os_hide_hud1 os_hide_hud0}
             {if_else $goldprogress os_goldprogress1 os_goldprogress0}
             {if_else $progressbar os_progressbar1 os_progressbar0}
+            {if_else $show_timer os_show_timer1 os_show_timer0}
             {if_else $show_pb os_show_pb1 os_show_pb0}
             {if_else $show_steak os_show_steak1 os_show_steak0}
          )
@@ -241,6 +242,9 @@
                )
                ((os_progressbar1 os_progressbar0)
                   {set $progressbar {! $progressbar}}
+               )
+               ((os_show_timer1 os_show_timer0)
+                  {set $show_timer {! $show_timer}}
                )
                ((os_show_pb1 os_show_pb0)
                   {set $show_pb {! $show_pb}}

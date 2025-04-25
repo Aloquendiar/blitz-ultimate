@@ -8,17 +8,12 @@
       {progress_bar.sld set_local_pos -413.50 -1.00 -84.00}
       {progress_bar.sld set_local_rot 0 -90 0}
       {progress_bar.sld set_showing $progressbar}
+
       {new UILabel pb.lbl}
       {pb.lbl copy {error_popup_panel find error.lbl} kCopyDeep}
-      {new UILabel streak.lbl}
-      {streak.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {pb.lbl set_token_fmt new_pb}
-      {streak.lbl set_int 0}
-      {streak.lbl set_local_pos {if_else $show_steak -406.50 -500} 0.00 -115.00}
-      {streak.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
-      {streak.lbl set (styles 0 text_size) 12}
       {hud.grp add_object pb.lbl}
-      {hud.grp add_object streak.lbl}
+
       {new TransAnim pb.tnm}
       {pb.tnm set_trans pb.lbl}
       {pb.tnm set_trans_spline TRUE}
@@ -26,7 +21,34 @@
       {pb.tnm add_trans_key -325 0 230 0.25}
       {pb.tnm add_trans_key -325 0 260 1}
       {pb.tnm set_frame 0}
+
+      {new UILabel streak.lbl}
+      {streak.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
+      {streak.lbl set_int 0}
+      {streak.lbl set_local_pos {if_else $show_steak -406.70 -500} 0.00 -115.00}
+      {streak.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
+      {streak.lbl set (styles 0 text_size) 12}
+      {hud.grp add_object streak.lbl}
+
+      {new UILabel timer.lbl}
+      {timer.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
+      {timer.lbl set_token_fmt " "}
+      {timer.lbl set_local_pos -421.00 0.00 -230.00}
+      {timer.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
+      {timer.lbl set alignment kMiddleLeft}
+      {timer.lbl set_showing $show_timer}
+      {hud.grp add_object timer.lbl}
+
+      {new TransAnim timer.tnm}
+      {timer.tnm set_trans timer.lbl}
+      {timer.tnm set_trans_spline TRUE}
+      {timer.tnm add_trans_key -422.00 0.00 -245.00 0}
+      {timer.tnm add_trans_key -422.00 0.00 -230.00 1}
+      {timer.tnm set_frame 0}
+
+
       {set $pbn FALSE}
+      {set $timeranim FALSE}
       {gem_smasher_red.tex iterate_refs $ref {set $wtd {{{{$ref dir} dir} dir} dir}}}
    }
    {if $hide_hud
