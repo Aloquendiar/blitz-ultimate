@@ -61,6 +61,7 @@
 (personal_best_msg "Personal Best\n%d")
 (previous_best_msg "Previous Best\n%d")
 (new_pb "NEW PERSONAL BEST!")
+(your_best "Your Best")
 (song_timer "%s / %s")
 (star0 "xxxxx")
 (star1 "5xxxx")

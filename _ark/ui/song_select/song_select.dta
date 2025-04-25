@@ -285,6 +285,13 @@
                      {set $cur_song_artist {$song artist}}
                      {set $cur_song_short_name {$song short_name}}
                      {set $cur_song_id {$song id}}
+                     {set $pb FALSE}
+                     {do
+                        ($score_data {find $scoresArray $cur_song_id})
+                        {if {&& $show_pb $score_data}
+                           {set $pb {elem $score_data 1}}
+                        }
+                     }
                      #ifndef HX_PS3
                      {$this mount_current_content {$song id}}
                      #endif

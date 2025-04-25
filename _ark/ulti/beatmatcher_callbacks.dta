@@ -8,12 +8,22 @@
       {set $timeranim TRUE}
    }
    {with $wtd
-      {if {&& $pb {! $pbn} {> {player_state.ep get score} $pb}}
-         {set $pbn TRUE}
-         {{{get_hud} find pb.tnm} animate
-            (units kTaskSeconds)
-            (period 4)
-            (range 0 1)
+      {if {&& $pb {! {is_online}}}
+         {do
+            ($score {player_state.ep get score})
+            ($range {clamp {/ $score $pb} 0 1})
+            {with {{get_hud} find dynamic_leaderboard}
+               {player_range.anim animate (range $range $range)}
+               {competitor_0_range.anim animate (range 1 1)}
+            }
+            {if {&& {! $pbn} {> $score $pb}}
+               {set $pbn TRUE}
+               {{{get_hud} find pb.tnm} animate
+                  (units kTaskSeconds)
+                  (period 6)
+                  (range 0 1)
+               }
+            }
          }
       }
       {{{get_hud} find progress_bar.sld} set_current {int {* {song_state.ep get song_ratio} 100}}}
