@@ -1,4 +1,4 @@
-# Rock Band Blitz Ultimate
+# Rock Band Blitz Ultimate 2.0
 
 Join the ultimate mods [Discord server](https://discord.gg/ht7XUfBXdB)
 
@@ -24,5 +24,11 @@ A mod for Rock Band Blitz on every platform that makes the game more much enjoya
 * Hide hud modifer
 * Load TBRB DLC songs modifier (PS3 ONLY)
 * Force skybox
-* Need for Speed: Most Wanted (2012) Skybox (PS3 ONLY)
-* Option to redirect Rock Central URL (PS3 ONLY NOT TESTED)
+* Force plots
+* Gold star progress shown
+* Note streak shown
+* Song progress bar
+* Song timer
+* Track progress towards personal bests
+* Need for Speed: Most Wanted (2012) Skybox
+* Option to redirect Rock Central URL (PS3 ONLY)
