@@ -29,12 +29,14 @@
       {$this lst_reset}
       {$this update_focus [get_focus]}
    )
+   (warn_pos 4)
    (lst_reset
       {pause.lst set_data
          (
             {if_else $freq_ms os_precision1 os_precision0}
             {if_else $disable_dof os_disable_dof1 os_disable_dof0}
             {if_else $disable_random_wiggles os_disable_rw1 os_disable_rw0}
+            os_online_acc
             os_hud_settings
             {if_else $which_skybox os_force_skybox1 os_force_skybox0}
             os_plot_settings
@@ -126,8 +128,13 @@
             {mod_settings_panel set_showing FALSE}
             {ui push_screen mod_hud_settings_screen}
          )
+         (os_online_acc
+            {foreach $acc (acc_high_cred acc_higher_cred acc_total_coins_spent acc_create_challenge)
+               {acc_mgr earn_accomplishment $acc}
+            }
+         )
       }
-      {if {> {[get_focus] selected_pos} 3}
+      {if {> {[get_focus] selected_pos} [warn_pos]}
          {set [should_warn] TRUE}
       }
       {$this lst_reset}

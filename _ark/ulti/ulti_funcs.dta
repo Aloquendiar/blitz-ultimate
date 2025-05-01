@@ -57,3 +57,51 @@
       {user_mgr is_participating_user_online}
    }
 }
+{func check_disk_acc_progress
+   {do
+      ($dspn)
+      ($ds5n)
+      ($dsgn)
+      {foreach $disk_song
+         (
+            1010522
+            1010499
+            1010493
+            1010381
+            1010553
+            1010437
+            1010552
+            1010554
+            1010492
+            1010508
+            1010549
+            1010541
+            1010494
+            1010529
+            1010478
+            1010551
+            1010528
+            1010378
+            1010526
+            1010524
+            1010517
+            1010550
+            1010539
+            1010557
+            1010530
+         )
+         {do
+            ($data {find $scoresArray $disk_song})
+            {if $data
+               {++ $dspn}
+               {if {> {elem $data 2} 4} {++ $ds5n}}
+               {if {== {elem $data 2} 6} {++ $dsgn}}
+            }
+         }
+      }
+      {if {> $dspn 11} {acc_mgr earn_accomplishment acc_play_n_core_songs}}
+      {if {> $dspn 24} {acc_mgr earn_accomplishment acc_all_songs_played}}
+      {if {> $ds5n 24} {acc_mgr earn_accomplishment acc_all_songs_stars}}
+      {if {> $dsgn 24} {acc_mgr earn_accomplishment acc_all_songs_more_stars}}
+   }
+}

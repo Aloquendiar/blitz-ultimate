@@ -24,6 +24,7 @@
                   {set_elem {find $scoresArray $cur_song_id} 2 $stars}
                   {write_file $scores_path $scoresArray}
                   {save_data update_star_rating $cur_song_id $stars}
+                  {acc_mgr earn_accomplishment acc_improved_score}
                }
                {do
                   {push_back $scoresArray {` ({, $cur_song_id} {, $score} {, $stars})}}
@@ -32,6 +33,7 @@
                }
             }
          }
+         {check_disk_acc_progress}
          {results_data.ep
             set
             score

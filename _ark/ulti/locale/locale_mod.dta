@@ -4,6 +4,11 @@
 (mod_settings "Mod Settings")
 (reboot_warning "Some changes to settings require a reboot to take effect.")
 (server_url "Enter URL/IP to a custom server")
+#ifdef HX_PS3
+(os_online_acc "Unlock Online Only Trophies")
+#else
+(os_online_acc "Unlock Online Only Achievements")
+#endif
 (os_unlock_all1 "Unlock All: ON")
 (os_unlock_all0 "Unlock All: OFF")
 (os_precision1 "Precision Mode: ON")

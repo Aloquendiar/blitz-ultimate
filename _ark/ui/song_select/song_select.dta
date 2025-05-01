@@ -32,6 +32,85 @@
             {$this update_current_song}
          }
       }
+      {check_disk_acc_progress}
+      #ifdef HX_XBOX
+      {do
+         ($size {size $scoresArray})
+         {if {> $size 49} {acc_mgr earn_accomplishment acc_dlc_count_one}}
+         {if {> $size 149} {acc_mgr earn_accomplishment acc_dlc_count_two}}
+         {if {> $size 299} {acc_mgr earn_accomplishment acc_dlc_count_three}}
+      }
+      {do
+         ($artistArray {array ((0 0))})
+         ($decadeArray
+            {array
+               (
+                  (0 0)
+                  (1 0)
+                  (2 0)
+                  (3 0)
+                  (4 0)
+                  (5 0)
+               )
+            }
+         )
+         ($all_decades TRUE)
+         ($genreArray {array ((rock 0))})
+         {foreach $score $scoresArray
+            {do
+               ($id {elem $score 0})
+               ($pos {{$this get_songs_provider} get_position $id})
+               ($meta_data {{$this get_songs_provider} get_metadata $pos})
+               {if $meta_data
+                  {do
+                     ($year {$meta_data year_released})
+                     ($decade_index
+                        {cond
+                           ({&& {>= $year 1950} {< $year 2010}} {int {/ {- $year 1950} 10}})
+                           ({>= $year 2010} 5)
+                           -1
+                        }
+                     )
+                     ($genre {$meta_data genre_token})
+                     ($artist {$meta_data artist})
+                     ($failed TRUE)
+                     ($elem)
+                     {if {>= $decade_index 0}
+                        {set_elem {elem $decadeArray $decade_index} 1
+                           {+ {elem {elem $decadeArray $decade_index} 1} 1}
+                        }
+                     }
+                     {if_else {find $genreArray $genre}
+                        {set_elem {find $genreArray $genre} 1 {+ {elem {find $genreArray $genre} 1} 1}}
+                        {push_back $genreArray {` ({, $genre} 1)}}
+                     }
+                     {foreach_int $i 0 {size $artistArray}
+                        {if {== {elem {elem $artistArray $i} 0} $artist}
+                           {set $elem $i}
+                           {set $failed FALSE}
+                        }
+                     }
+                     {if_else $failed
+                        {push_back $artistArray {` ({, $artist} 1)}}
+                        {set_elem {elem $artistArray $elem} 1 {+ {elem {elem $artistArray $elem} 1} 1}}
+                     }
+                  }
+               }
+            }
+         }
+         {foreach $artist $artistArray
+            {if {> {elem $artist 1} 9} {acc_mgr earn_accomplishment acc_many_songs_in_artist}}
+         }
+         {foreach $genre $genreArray
+            {if {> {elem $genre 1} 49} {acc_mgr earn_accomplishment acc_many_songs_in_genre}}
+         }
+         {foreach $decade $decadeArray
+            {if {> {elem $decade 1} 49} {acc_mgr earn_accomplishment acc_many_songs_in_decade}}
+            {unless {elem $decade 1} {set $all_decades FALSE}}
+         }
+         {if $all_decades {acc_mgr earn_accomplishment acc_all_decades_played}}
+      }
+      #endif
    )
    (get_current_album_tex {{album_art find album.mat} get diffuse_tex})
    (show_shortcuts
