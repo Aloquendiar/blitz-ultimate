@@ -44,12 +44,10 @@
       {{{get_hud} find progress_bar.sld} set_current {int {* {song_state.ep get song_ratio} 100}}}
       {do
          ($beat {song_state.ep get current_beat})
-         {unless {> $beat $end_beat}
-            {{{get_hud} find timer.lbl} set_token_fmt
-               song_timer
-               {seconds_to_time {beat_to_seconds $beat}}
-               $song_length_display
-            }
+         {{{get_hud} find timer.lbl} set_token_fmt
+            song_timer
+            {seconds_to_time {beat_to_seconds {clamp 0 $end_beat $beat}}}
+            $song_length_display
          }
       }
       {if $goldprogress
