@@ -1,5 +1,32 @@
 {new GamePanel
    game_panel
+   (enter {set $buttonArray {array ()}})
+   (BUTTON_DOWN_MSG
+      {do
+         ($str {raw_button_str $raw_button})
+         {if {&& $str {! {find_elem $buttonArray $str}}}
+            {push_back $buttonArray $str}
+         }
+      }
+      {$this update_input_viewer}
+      kDataUnhandled
+   )
+   (BUTTON_UP_MSG
+      {remove_elem $buttonArray {raw_button_str $raw_button}}
+      {$this update_input_viewer}
+      kDataUnhandled
+   )
+   (update_input_viewer
+      {do
+         ($string "")
+         {foreach $button $buttonArray
+            {strcat $string $button}
+         }
+         {with {get_hud}
+            {inputs.lbl set_token_fmt $string}
+         }
+      }
+   )
    (is_in_demo_mode {is_in_demo_game_state})
    (get_demo_config {get_demo_config})
 }
@@ -25,6 +52,8 @@
             }
          )
          {if $should_pause
+            {set $buttonArray {array ()}}
+            {game_panel update_input_viewer}
             {$this pause}
          }
          $should_pause

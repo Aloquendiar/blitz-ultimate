@@ -105,6 +105,11 @@
                {elem {find $entry show_steak} 1}
             }
          }
+         {if {find $entry input_viewer}
+            {set $input_viewer
+               {elem {find $entry input_viewer} 1}
+            }
+         }
       }
    }
    {set $no_settings_file TRUE}

@@ -1,6 +1,31 @@
 {func get_hud
    {{game_panel get_game} get_hud_dir}
 }
+{func raw_button_str
+   ($raw_button)
+   {switch $raw_button
+      (kPad_L2 "l")
+      (kPad_R2 "r")
+      (kPad_L1 "L")
+      (kPad_R1 "R")
+      (kPad_Tri "Y")
+      (kPad_Circle "B")
+      (kPad_X "A")
+      (kPad_Square "X")
+      (kPad_Select "s")
+      (kPad_L3 "[")
+      (kPad_R3 "]")
+      (kPad_Start "S")
+      (kPad_DUp "w")
+      (kPad_DRight "d")
+      (kPad_DDown "x")
+      (kPad_DLeft "a")
+      (kPad_RStickUp "^")
+      (kPad_RStickRight "&")
+      (kPad_RStickDown "*")
+      (kPad_RStickLeft "(")
+   }
+}
 {func ulti_settings_writer
    {write_file $ulti_settings_path
       {array
@@ -26,6 +51,7 @@
                (show_timer $show_timer)
                (show_personal_best $show_pb)
                (show_steak $show_steak)
+               (input_viewer $input_viewer)
             )
          )
       }

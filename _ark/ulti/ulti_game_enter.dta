@@ -61,6 +61,16 @@
          }
       }
 
+      {new UILabel inputs.lbl}
+      {inputs.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
+      {inputs.lbl set_token_fmt " "}
+      {inputs.lbl set_local_pos -420.00 0.00 227.00}
+      {inputs.lbl set (styles 0 font_resource) buttons}
+      {inputs.lbl set (styles 0 text_size) 20}
+      {inputs.lbl set alignment kMiddleLeft}
+      {inputs.lbl set_showing $input_viewer}
+      {hud.grp add_object inputs.lbl}
+
       {set $pbn FALSE}
       {set $timeranim FALSE}
       {set $dlinit FALSE}

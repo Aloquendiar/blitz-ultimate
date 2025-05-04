@@ -232,6 +232,7 @@
             {if_else $show_timer os_show_timer1 os_show_timer0}
             {if_else $show_pb os_show_pb1 os_show_pb0}
             {if_else $show_steak os_show_steak1 os_show_steak0}
+            {if_else $input_viewer os_input_viewer1 os_input_viewer0}
          )
       }
    )
@@ -284,6 +285,9 @@
                )
                ((os_show_steak1 os_show_steak0)
                   {set $show_steak {! $show_steak}}
+               )
+               ((os_input_viewer1 os_input_viewer0)
+                  {set $input_viewer {! $input_viewer}}
                )
             }
          )

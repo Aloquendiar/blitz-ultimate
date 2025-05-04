@@ -38,6 +38,8 @@
 (os_show_pb0 "Show Personal Best: OFF")
 (os_show_steak1 "Show Note Streak: ON")
 (os_show_steak0 "Show Note Streak: OFF")
+(os_input_viewer1 "Show Input Viewer: ON")
+(os_input_viewer0 "Show Input Viewer: OFF")
 (os_plot_settings "Plot Settings")
 (os_disable_plots1 "Disable Plots: ON")
 (os_disable_plots0 "Disable Plots: OFF")
