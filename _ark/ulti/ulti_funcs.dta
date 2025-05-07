@@ -57,6 +57,10 @@
       }
    }
 }
+{func cycle_int
+   ($min $max $int)
+   {+ $min {mod {+ {- $int $min} 1} {+ 1 {- $max $min}}}}
+}
 {func seconds_to_time
    ($secs)
    {do

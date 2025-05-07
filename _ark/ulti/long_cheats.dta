@@ -1,0 +1,48 @@
+#define CHEATS_ALLOWED (
+   {&&
+      {! {ui in_transition}}
+      {== {ui current_screen} splash_screen}
+      {== {{splash_panel loaded_dir} get state} start}
+   }
+)
+#define REAL_CHEATS_ALLOWED (
+   {&&
+      $mysteriocheats
+      {== {ui current_screen} game_screen}
+      {== {game_screen focus_panel} pause_panel}
+   }
+)
+(
+   (kPad_R3 kPad_R3 kPad_R3 kPad_R3 kPad_L3 kPad_L3 kPad_L3 kPad_L3 kPad_R3)
+   {if CHEATS_ALLOWED
+      {set $disco {! $disco}}
+      {if_else $disco
+         {shell_sfx play_purchase_error}
+         {shell_sfx play_back}
+      }
+   }
+)
+(
+   (kPad_L3 kPad_L3 kPad_L3 kPad_L3 kPad_R3 kPad_R3 kPad_R3 kPad_R3 kPad_L3)
+   {if CHEATS_ALLOWED
+      {set $gems {cycle_int 1 3 $gems}}
+      {shell_sfx play_purchase_error}
+   }
+)
+(
+   (kPad_DRight kPad_DDown kPad_DUp kPad_DUp kPad_DUp kPad_DRight kPad_DLeft kPad_DRight)
+   {if CHEATS_ALLOWED
+      {set $mysteriocheats {! $mysteriocheats}}
+      {if_else $mysteriocheats
+         {shell_sfx play_purchase_error}
+         {shell_sfx play_back}
+      }
+   }
+)
+(
+   (kPad_DDown kPad_DLeft kPad_DDown kPad_DDown kPad_DDown)
+   {if REAL_CHEATS_ALLOWED
+      {{$wtd find powerups_state.ep} set powerup_energy 1}
+      {shell_sfx play_purchase_error}
+   }
+)

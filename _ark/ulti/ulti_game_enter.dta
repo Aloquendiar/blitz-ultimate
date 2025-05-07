@@ -127,4 +127,75 @@
       (note_streak)
    }
    {player_state.ep add_sink player_state_callbacks (end_song gem_hit miss)}
+   {if $disco
+      {$this iterate PostProc $pp
+         {with $pp
+            {set [noise_intensity] 5.0}
+            {set [bloom_threshold] 1.5}
+            {set [bloom_intensity] 1.25} ; set to 2 for a better time
+            {set [bloom_streak] TRUE}
+            {set [bloom_streak_attenuation] 0.95}
+            {set [bloom_streak_angle] 45.0}
+            {set [hue] 150}
+            {set [saturation] 100}
+            {set [brightness] 30}
+            {set [contrast] 50}
+            {set [lightness] 20}
+         }
+      }
+      {new Object
+         disco_start
+         (gem_hit
+            {frenzy.flow set toggle_running 1}
+            {player_state.ep remove_sink $this}
+         )
+      }
+      {player_state.ep add_sink disco_start (gem_hit)}
+   }
+   {if $gems
+      {track iterate SingleTrackDir $std
+         {if {&& {{$std find track_data.ep} get track_type} {!= {$std name} single_track5}}
+            {with $std
+               {gem.wid clear (multi_meshes)}
+               {switch $gems
+                  (1
+                     {new Tex gem_ulti.tex}
+                     {gem_ulti.tex set_bitmap "ulti/textures/gems/gem_ulti.png"}
+                     {new Mat ulti_logo.mat}
+                     {ulti_logo.mat set color {pack_color 1 1 1}}
+                     {ulti_logo.mat set diffuse_tex gem_ulti.tex}
+                     {gem_directional_0.mesh set mat ulti_logo.mat}
+                     {gem.wid append (multi_meshes) gem_directional_0.mm}
+                  )
+                  (2
+                     {gem_powerup_multi.mat set color 
+                        {switch {$std name}
+                           (single_track0 {pack_color 0 1 0})
+                           (single_track1 {pack_color 1 0 0})
+                           (single_track2 {pack_color 1 1 0})
+                           (single_track3 {pack_color 0.31 0.6 1})
+                           (single_track4 {pack_color 1 0.5 0})
+                           0
+                        }
+                     }
+                     {gem.wid append (multi_meshes) gem_power_multi.mm}
+                  )
+                  (3
+                     {gem_powerup_frenzy.mat set color 
+                        {switch {$std name}
+                           (single_track0 {pack_color 0 1 0})
+                           (single_track1 {pack_color 1 0 0})
+                           (single_track2 {pack_color 1 1 0})
+                           (single_track3 {pack_color 0.31 0.6 1})
+                           (single_track4 {pack_color 1 0.5 0})
+                           0
+                        }
+                     }
+                     {gem.wid append (multi_meshes) gem_power_frenzy.mm}
+                  )
+               }
+            }
+         }
+      }
+   }
 }

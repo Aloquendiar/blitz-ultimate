@@ -1,4 +1,6 @@
 #include macros.dta
+(long_cheats
+   #include ../ulti/long_cheats.dta)
 (version
    #include sync_version.dta)
 (store
