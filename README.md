@@ -9,7 +9,7 @@ A mod for Rock Band Blitz on every platform that makes the game more much enjoya
 ## Additions
 * Fast startup
 * All power-ups available offline
-* Offline score saving
+* Offline score saving and achievements
 * Calibration manually adjusts in 1ms increments
 * Controller mapping saves offline
 * Dirty disk error when loading custom songs removed (Xbox 360)
@@ -29,6 +29,7 @@ A mod for Rock Band Blitz on every platform that makes the game more much enjoya
 * Note streak shown
 * Song progress bar
 * Song timer
+* Input viewer
 * Track progress towards personal bests
 * Need for Speed: Most Wanted (2012) Skybox
 * Option to redirect Rock Central URL (PS3 ONLY)
