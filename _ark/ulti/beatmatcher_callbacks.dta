@@ -13,22 +13,24 @@
             ($score {player_state.ep get score})
             ($range {clamp {/ $score $pb} 0 1})
             {with {{get_hud} find dynamic_leaderboard}
-               {unless $dlinit
-                  {set $prevrange 0.50}
-                  {competitor_0_range.anim animate
-                     (units kTaskSeconds)
-                     (period 1)
-                     (range 0.50 1)
+               {unless [has_data]
+                  {unless $dlinit
+                     {set $prevrange 0.50}
+                     {competitor_0_range.anim animate
+                        (units kTaskSeconds)
+                        (period 1)
+                        (range 0.50 1)
+                     }
+                     {set $dlinit TRUE}
                   }
-                  {set $dlinit TRUE}
-               }
-               {unless {player_range.anim is_animating}
-                  {player_range.anim animate
-                     (units kTaskSeconds)
-                     (period 1)
-                     (range $prevrange $range)
+                  {unless {player_range.anim is_animating}
+                     {player_range.anim animate
+                        (units kTaskSeconds)
+                        (period 1)
+                        (range $prevrange $range)
+                     }
+                     {set $prevrange $range}
                   }
-                  {set $prevrange $range}
                }
             }
             {if {&& {! $pbn} {> $score $pb}}

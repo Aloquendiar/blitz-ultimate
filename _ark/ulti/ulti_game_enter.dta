@@ -49,15 +49,17 @@
          {pb.tnm set_frame 0}
          
          {with dynamic_leaderboard
-            {foreach $anim (player_range.anim competitor_0_range.anim)
-               {$anim iterate_refs $ref
-                  {if {$ref is_a FlowSetProperty} {delete $ref}}
+            {unless [has_data]
+               {foreach $anim (player_range.anim competitor_0_range.anim)
+                  {$anim iterate_refs $ref
+                     {if {$ref is_a FlowSetProperty} {delete $ref}}
+                  }
                }
+               {{competitor_board_0 find name.lbl} set_token_fmt your_best}
+               {competitor_board_0 set_showing TRUE}
+               {draw.grp set_showing TRUE}
+               {{{get_hud} find hud.grp} add_object draw.grp}
             }
-            {{competitor_board_0 find name.lbl} set_token_fmt your_best}
-            {competitor_board_0 set_showing TRUE}
-            {draw.grp set_showing TRUE}
-            {{{get_hud} find hud.grp} add_object draw.grp}
          }
       }
 
