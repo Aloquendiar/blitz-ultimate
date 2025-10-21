@@ -135,3 +135,29 @@
       {if {> $dsgn 24} {acc_mgr earn_accomplishment acc_all_songs_more_stars}}
    }
 }
+{func strip_syms
+   ($string)
+   {foreach $sym
+      (
+         "-"
+         "+"
+         "("
+         ")"
+         "\q"
+         "'"
+         "`"
+         "?"
+         "/"
+         "!"
+         "."
+         ","
+         ":"
+         ";"
+      )
+      {search_replace $string $sym "" $string}
+   }
+   ; after removing syms double spaces will cause search to fail for something like "Undone - The Sweater Song"
+   {search_replace $string "  " " " $string}
+   {search_replace $string "&" "and" $string}
+   $string
+}

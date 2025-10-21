@@ -80,3 +80,6 @@
 (star6 "66666")
 (on "On")
 (off "Off")
+(search "SEARCH")
+(search_for_song "Search for a song")
+(search_for_song_desc "Search for a song by name or artist")

@@ -16,7 +16,7 @@
       {if {! [should_skip_intro]}
          {do
             ($current_song_id {$this get_current_song_id})
-            {$this sort_song_list}
+            ;{$this sort_song_list}
             {songs.lst set_provider {$this get_songs_provider}}
             {saveload_mgr autosave}
             {if_else {== kSongID_Invalid $current_song_id}
@@ -28,7 +28,7 @@
             }
             {mini_leaders.lst set_provider {$this get_mini_leaderboard_provider}}
             {shortcuts.grp set_showing FALSE}
-            {$this set_focus songs.lst}
+            ;{$this set_focus songs.lst}
             {$this update_current_song}
          }
       }
@@ -325,13 +325,22 @@
       {shell_music_panel set_mute_state TRUE}
    )
    (SCROLL_MSG
-      {if {== {$this focus_name} songs.lst}
-         {$this update_current_song}
-         {$this set mini_lb_mode kLeaderboardMode_Friend}
+      {switch {$this focus_name}
+         (songs.lst
+            {$this update_current_song}
+            {$this set mini_lb_mode kLeaderboardMode_Friend}
+         )
+         (song_search.lst
+            {songs.lst set_selected
+               {{$this get_songs_provider} get_position {elem [results] {song_search.lst selected_pos}}}
+            }
+            {$this update_current_song}
+            {$this set mini_lb_mode kLeaderboardMode_Friend}
+         )
       }
    )
    (SELECT_MSG
-      {if_else {== $component songs.lst}
+      {if_else {find_elem (songs.lst song_search.lst) $component}
          {if_else {trial_mgr get_trial_mode}
             {do
                {if_else {$this is_play_random_song {songs.lst selected_pos}}
@@ -401,12 +410,12 @@
       {if_else {{song_select_panel find shortcuts.grp} showing}
          {switch $action
             (kAction_Left
-               {unless {'||' {ui in_transition} $testvar} ; not actually sure if in_transition exists in this game
+               {unless {'||' {ui in_transition} [search_mode]} ; not actually sure if in_transition exists in this game
                   {shortcuts.lst set_selected {- {shortcuts.lst selected_pos} 5}}
                }
             ) ; was unstable on rpcs3 with higher values. lower this to 3 or something if it crashes the game.
             (kAction_Right
-               {unless {'||' {ui in_transition} $testvar}
+               {unless {'||' {ui in_transition} [search_mode]}
                   {shortcuts.lst set_selected {+ {shortcuts.lst selected_pos} 5}}
                }
             )
@@ -420,20 +429,27 @@
          }
          {switch $action
             (kAction_Left
-               {unless {'||' {ui in_transition} $testvar}
-                  {songs.lst set_selected {- {songs.lst selected_pos} 5}}
-                  {$this update_current_song}
-                  {$this set mini_lb_mode kLeaderboardMode_Friend}
+               {unless {ui in_transition}
+                  {{$this focus_name} set_selected
+                     {- {{$this focus_name} selected_pos} 5}
+                  }
+                  {$this component_scroll 0 0 0}
                }
             )
             (kAction_Right
-               {unless {'||' {ui in_transition} $testvar}
-                  {songs.lst set_selected {+ {songs.lst selected_pos} 5}}
-                  {$this update_current_song}
-                  {$this set mini_lb_mode kLeaderboardMode_Friend}
+               {unless {ui in_transition}
+                  {{$this focus_name} set_selected
+                     {+ {{$this focus_name} selected_pos} 5}
+                  }
+                  {$this component_scroll 0 0 0}
                }
             )
-            (kAction_Cancel {ui goto_screen splash_screen})
+            (kAction_Cancel
+               {if_else [search_mode]
+                  {$this update_search_mode FALSE}
+                  {ui goto_screen splash_screen}
+               }
+            )
             (kAction_ShellOption
                {do
                   ($cur_song {$this get_current_song})
@@ -475,36 +491,133 @@
                }
             )
             (kAction_ViewModify
-               {do
-                  ($before_sort_song_id {$this get_current_song_id})
-                  {$this sort_list_cycle}
-                  {data_mine_mgr add_event
-                     change_sort_method
-                     (("which_sort_type" {$this get_current_sort}))
-                  }
-                  {{$this get_songs_provider} build_list
-                     {find $syscfg song_sort groupings {$this get_current_sort}}
-                  }
-                  {songs.lst refresh}
-                  {sorting.lbl set_token_fmt song_sort_str {$this get_current_sort}}
-                  {if_else {== kSongID_Invalid $before_sort_song_id}
-                     {songs.lst set_selected 0}
-                     {do
-                        ($last_song_pos
-                           {{$this get_songs_provider} get_position $before_sort_song_id}
-                        )
-                        {songs.lst set_selected $last_song_pos}
+               {unless [search_mode]
+                  {do
+                     ($before_sort_song_id {$this get_current_song_id})
+                     {$this sort_list_cycle}
+                     {data_mine_mgr add_event
+                        change_sort_method
+                        (("which_sort_type" {$this get_current_sort}))
+                     }
+                     {{$this get_songs_provider} build_list
+                        {find $syscfg song_sort groupings {$this get_current_sort}}
+                     }
+                     {songs.lst refresh}
+                     {sorting.lbl set_token_fmt song_sort_str {$this get_current_sort}}
+                     {if_else {== kSongID_Invalid $before_sort_song_id}
+                        {songs.lst set_selected 0}
+                        {do
+                           ($last_song_pos
+                              {{$this get_songs_provider} get_position $before_sort_song_id}
+                           )
+                           {songs.lst set_selected $last_song_pos}
+                        }
                      }
                   }
                }
             )
             (kAction_Start
-               {options_screen set back_screen song_select_screen}
-               {ui goto_screen options_screen}
+               {virtual_keyboard show_keyboard
+                  $user
+                  100
+                  {localize search_for_song}
+                  {localize search_for_song_desc}
+                  ""
+                  $this
+               }
             )
-            (kAction_Option {$this show_shortcuts})
+            (kAction_Option
+               {unless [search_mode]
+                  {$this show_shortcuts}
+               }
+            )
             kDataUnhandled
          }
+      }
+   )
+   (finish_load
+      {$this sort_song_list} ; doing this here fixes lag when switching tabs
+      {new UIList song_search.lst}
+      {song_search.lst copy songs.lst 0}
+      {song_search.lst set list_resource list_store_songpage}
+      {song_search.lst set display_num 14}
+      {song_search.lst set max_display 12}
+      {song_search.lst set_local_pos 0 0 165}
+      {song_search.lst set_local_scale 1 1 1}
+      {song_search.lst set_showing FALSE}
+      {InlineHelp.ihp set_action_token
+         kAction_Start
+         search
+      }
+      {$this update_search_mode FALSE}
+      {$this sync_objects}
+   )
+   (unload {set [results] {array 0}})
+   (search_mode FALSE)
+   (results ())
+   (search_for
+      ($string)
+      {set [results] {array 0}}
+      {do
+         ($array {array 0})
+         ($song_array {array 0})
+         {foreach_int $elem 0 {songs.lst num_data}
+            {do
+               ($song {{$this get_songs_provider} get_metadata $elem})
+               {if
+                  {&&
+                     $song
+                     {||
+                        {has_substr {tolower {strip_syms {$song title}}} $string}
+                        {has_substr {tolower {strip_syms {$song artist}}} $string}
+                     }
+                  }
+                  {push_back $array {array ({$song title} {$song id})}}
+               }
+            }
+         }
+         {if_else {size $array}
+            {do
+               {sort $array}
+               {foreach $entry $array
+                  {push_back $song_array {elem $entry 0}}
+                  {push_back [results] {elem $entry 1}}
+               }
+               {song_search.lst set_data $song_array}
+               {song_search.lst set_selected 0}
+               {$this update_search_mode TRUE}
+               {$this component_scroll 0 0 0}
+            }
+            {do
+               {shell_sfx play_purchase_error}
+               {$this update_search_mode FALSE}
+            }
+         }
+      }
+   )
+   (update_search_mode
+      ($bool)
+      {set [search_mode] $bool}
+      {if_else [search_mode]
+         {do
+            {songs.lst set_showing FALSE}
+            {song_search.lst set_showing TRUE}
+            {scroller.grp set_showing FALSE}
+            {sorting.lbl set_showing FALSE}
+            {$this set_focus song_search.lst}
+         }
+         {do
+            {song_search.lst set_showing FALSE}
+            {songs.lst set_showing TRUE}
+            {scroller.grp set_showing TRUE}
+            {sorting.lbl set_showing TRUE}
+            {$this set_focus songs.lst}
+         }
+      }
+   )
+   (VIRTUAL_KEYBOARD_RESULT_MSG
+      {if {&& $ok $this}
+         {$this search_for {tolower {strip_syms $text}}}
       }
    )
 }
