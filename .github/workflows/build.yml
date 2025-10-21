@@ -1,0 +1,74 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build_xbox:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set env
+        run: |
+          chmod +x dependencies/linux/arkhelper
+          chmod +x dependencies/linux/dtab
+      - name: Remove PS3 files
+        run: |
+          find . -name "*.*_ps3" -type f -delete
+      - name: Build ARK
+        run: |
+          dependencies/linux/arkhelper dir2ark ./_ark ./_build/xbox/gen -n "patch_xbox" -e -v 5 -s 4073741823
+      
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: RBBU-Xbox
+          path: _build/xbox
+
+  build_ps3_usa:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove Xbox files
+        run: |
+          Get-ChildItem _ark/ -recurse -include *.*_xbox | remove-item
+      - name: Build ARK
+        run: |
+          dependencies/arkhelper.exe dir2ark _ark _build/ps3/USRDIR/gen -n "patch_ps3" -e -v 5 -s 4073741823
+      - name: Build PKG
+        run: |
+          $sha_short="$(git rev-parse --short HEAD)".ToUpper()
+          $content="UP8802-NPUB30749_00-RBBU00000"
+          dependencies/ta_pkg_repacker_tools/make_package_npdrm_retail.exe --k-licensee 0x00000000000000000000000000000000 --content-id ($content + $sha_short) dependencies/ta_pkg_repacker_tools/eur/package.conf _build/ps3
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: RBBU-PS3-USA
+          path: '*.pkg'
+
+  build_ps3_eur:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove Xbox files
+        run: |
+          Get-ChildItem _ark/ -recurse -include *.*_xbox | remove-item
+      - name: Build ARK
+        run: |
+          dependencies/arkhelper.exe dir2ark _ark _build/ps3/USRDIR/gen -n "patch_ps3" -e -v 5 -s 4073741823
+      - name: Build PKG
+        run: |
+          Remove-Item "_build\ps3\PARAM.SFO" -Force
+          Remove-Item "_build\ps3\C00\PARAM.SFO" -Force
+          move "dependencies\ta_pkg_repacker_tools\eur\PARAM.SFO" "_build\ps3"
+          move "dependencies\ta_pkg_repacker_tools\eur\C00\PARAM.SFO" "_build\ps3\C00"
+          $sha_short="$(git rev-parse --short HEAD)".ToUpper()
+          $content="EP8802-NPEB00988_00-RBBU00000"
+          dependencies/ta_pkg_repacker_tools/make_package_npdrm_retail.exe --k-licensee 0x00000000000000000000000000000000 --content-id ($content + $sha_short) dependencies/ta_pkg_repacker_tools/eur/package.conf _build/ps3
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: RBBU-PS3-EUR
+          path: '*.pkg'
