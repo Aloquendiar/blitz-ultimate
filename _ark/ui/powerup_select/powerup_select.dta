@@ -35,7 +35,6 @@
       {set $cur_song_artist {{$this get_song} artist}}
       {set $cur_song_short_name {{$this get_song} short_name}}
       {set $cur_song_id {{$this get_song} id}}
-      {write_file "GD:/dev_hdd0/blitz/info.dta" {array ($cur_song_name $cur_song_artist $cur_song_short_name $cur_song_id)}}
       {powerup_select.lst set_selected 0}
       {powerup_select.lst refresh}
       {{$this loaded_dir} set main_powerup_menu active}
