@@ -82,8 +82,8 @@
    }
 }
 {func is_online
-   {&&
-      {! {rock_central is_login_blocked}}
+   {||
+      {rock_central is_login_blocked}
       {user_mgr is_participating_user_online}
    }
 }

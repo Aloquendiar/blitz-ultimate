@@ -25,7 +25,7 @@
          {foreach $score $scoresArray
             {save_data update_star_rating {elem $score 0} {elem $score 2}} ; i was literally at a loss for words when i discovered this command. THANK YOU HARMONIX I LOVE YOU!!!!!! 
          }
-         {if $unlockall
+         {if {&& $unlockall {! {is_online}}}
             {{user_mgr get_participating_user} set_unlock_all}
          } ; unlocks all powerups
          {{user_mgr get_participating_user} set_allow_rbn_demos} ; allows rbn demos for all the people that still have them lol. makes customs actually work in master xenia, if only you could see the track there.
