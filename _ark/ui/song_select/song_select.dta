@@ -16,7 +16,11 @@
       {if {! [should_skip_intro]}
          {do
             ($current_song_id {$this get_current_song_id})
-            ;{$this sort_song_list}
+            {unless {{$this loaded_dir} has (init)}
+               {$this sort_song_list}
+               {$this set_focus songs.lst}
+               {{$this loaded_dir} set init TRUE}
+            }
             {songs.lst set_provider {$this get_songs_provider}}
             {saveload_mgr autosave}
             {if_else {== kSongID_Invalid $current_song_id}
@@ -28,7 +32,6 @@
             }
             {mini_leaders.lst set_provider {$this get_mini_leaderboard_provider}}
             {shortcuts.grp set_showing FALSE}
-            ;{$this set_focus songs.lst}
             {$this update_current_song}
          }
       }
@@ -331,8 +334,11 @@
             {$this set mini_lb_mode kLeaderboardMode_Friend}
          )
          (song_search.lst
-            {songs.lst set_selected
-               {{$this get_songs_provider} get_position {elem [results] {song_search.lst selected_pos}}}
+            {if_else {size [results]}
+               {songs.lst set_selected
+                  {{$this get_songs_provider} get_position {elem [results] {song_search.lst selected_pos}}}
+               }
+               {$this update_search_mode FALSE}
             }
             {$this update_current_song}
             {$this set mini_lb_mode kLeaderboardMode_Friend}
@@ -536,7 +542,6 @@
       }
    )
    (finish_load
-      {$this sort_song_list} ; doing this here fixes lag when switching tabs
       {new UIList song_search.lst}
       {song_search.lst copy songs.lst 0}
       {song_search.lst set list_resource list_store_songpage}
@@ -552,7 +557,10 @@
       {$this update_search_mode FALSE}
       {$this sync_objects}
    )
-   (unload {set [results] {array 0}})
+   (unload
+      {set [results] {array 0}}
+      {$this update_search_mode FALSE}
+   )
    (search_mode FALSE)
    (results ())
    (search_for
