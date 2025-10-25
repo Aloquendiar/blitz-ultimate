@@ -88,7 +88,7 @@
    )
    #endif
    (display_loading_tip
-      {if_else $unlockall
+      {if_else {&& $unlockall {! {is_online}}}
          {tip.lbl set_dynamic_controller_token {elem {random_elem [loading_tips_array]} 1}}
          {do
             ($chosen_tip
