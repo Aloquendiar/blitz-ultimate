@@ -129,6 +129,29 @@
       (note_streak)
    }
    {player_state.ep add_sink player_state_callbacks (end_song gem_hit miss)}
+   {with track
+      {switch $camera_angle
+         (1
+            {camera_blitz.anim iterate_refs $ref
+               {if {$ref is_a FlowAnimate}
+                  {delete $ref}
+               }
+            }
+         )
+         (2
+            {camera_blitz.anim iterate_refs $ref
+               {if {$ref is_a FlowAnimate}
+                  {delete $ref}
+               }
+            }
+            {camera_song_intro.anim iterate_refs $ref
+               {if {$ref is_a FlowAnimate} ; r2:FlowAnimate:camera.flow
+                  {$ref set anim {object camera_blitz.anim}}
+               }
+            }
+         )
+      }
+   }
    {if $disco
       {$this iterate PostProc $pp
          {with $pp

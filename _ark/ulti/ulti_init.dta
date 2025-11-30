@@ -9,6 +9,7 @@
 {set $show_timer TRUE}
 {set $show_pb TRUE}
 {set $show_steak TRUE}
+{set $camera_angle 0}
 #ifdef HX_PS3
 #define TITLE_ID
 (#ifdef REGION_EUROPE "NPEB00988" #else "NPUB30749" #endif)
