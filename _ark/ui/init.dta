@@ -56,7 +56,7 @@
    #endif
    #include ../config/meta_funcs.dta
    #include shell_sfx.dta
-   #include mod_settings.dta
+   #include ../ulti/mod_settings.dta
    #include ../ulti/ulti_funcs.dta
    #autorun {do #include ../ulti/ulti_init.dta}
    #include ../ulti/pers_tex.dta

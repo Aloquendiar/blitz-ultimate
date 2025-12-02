@@ -1,0 +1,340 @@
+{new UIPanel
+   mod_warning_panel
+   (file "../ui/error/error_general.milo")
+   (enter
+      {$this set_showing FALSE}
+      {all.grp set_showing TRUE}
+      {error.lbl set_token_fmt reboot_warning}
+   )
+   (BUTTON_DOWN_MSG
+      {if {== $action kAction_Confirm}
+         {mod_settings_panel handle_leave}
+      }
+   )
+}
+{new UIPanel
+   mod_settings_panel
+   SETTINGS_LIST_FILE
+   (should_warn)
+   (warn_pos 4)
+   (title mod_settings)
+   (data (
+      (mod_game
+         (type uNormal)
+         (sel_script {pop_and_goto_screen mod_game_settings_screen})
+      )
+      (mod_visual
+         (type uNormal)
+         (sel_script {pop_and_goto_screen mod_visual_settings_screen})
+      )
+      (mod_other
+         (type uNormal)
+         (sel_script {pop_and_goto_screen mod_other_settings_screen})
+      )
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG
+      {if {find_elem (kAction_Cancel kAction_ViewModify) $action}
+         #ifndef HX_3DS
+         {ulti_settings_writer}
+         #endif
+         {if_else [should_warn]
+            {do
+               {$this set_showing FALSE}
+               {mod_warning_panel set_showing TRUE}
+               {mod_settings_screen set_focus_panel mod_warning_panel}
+               {set [should_warn] FALSE}
+            }
+            {do
+               {set [pos] (0 0)}
+               {$this handle_leave}
+            }
+         }
+      }
+      kDataUnhandled
+   )
+   (SELECT_MSG {os_sel_common})
+   (handle_leave
+      {ui pop_screen}
+      {if {pause_panel is_up}
+         {pause_panel set_showing TRUE}
+      }
+   )
+}
+{new UIScreen
+   mod_settings_screen
+   (enter
+      {mod_settings_panel set_showing TRUE}
+      {mod_warning_panel set_showing FALSE}
+      {$this set_focus_panel mod_settings_panel}
+   )
+   (panels mod_settings_panel mod_warning_panel)
+}
+{new UIPanel
+   mod_game_settings_panel
+   SETTINGS_LIST_FILE
+   (title mod_game)
+   (data (
+      (os_precision
+         (type uOnOFF)
+         (bool $freq_ms)
+         (sel_script {toggle_var freq_ms})
+      )
+      (os_disable_rw
+         (type uOnOFF)
+         (bool $disable_random_wiggles)
+         (sel_script {toggle_var disable_random_wiggles})
+      )
+      (os_cameraangle
+         (type uSld)
+         (fmt_type uAngle)
+         (var camera_angle)
+         (step 1)
+         (range 0 2)
+      )
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG {os_sel_common})
+}
+{new UIScreen
+   mod_game_settings_screen
+   (panels mod_game_settings_panel)
+   (focus mod_game_settings_panel)
+   (back mod_settings_screen)
+}
+{new UIPanel
+   mod_visual_settings_panel
+   SETTINGS_LIST_FILE
+   (title mod_visual)
+   (data (
+      (os_disable_dof
+         (type uOnOFF)
+         (bool $disable_dof)
+         (sel_script {toggle_var disable_dof})
+      )
+      (os_hud_settings
+         (type uNormal)
+         (sel_script {pop_and_goto_screen mod_hud_settings_screen})
+      )
+      (os_disable_plots
+         (type uOnOFF)
+         (bool $disable_plots)
+         (reboot TRUE)
+         (sel_script {toggle_var disable_plots})
+      )
+      (os_force_plot
+         (type uOnOFF)
+         (bool $forceplot)
+         (reboot TRUE)
+         (sel_script {pop_and_goto_screen mod_force_plot_screen})
+      )
+      (os_force_skybox
+         (type uOnOFF)
+         (bool $which_skybox)
+         (reboot TRUE)
+         (sel_script {pop_and_goto_screen mod_force_skybox_screen})
+      )
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG {os_sel_common})
+}
+{new UIScreen
+   mod_visual_settings_screen
+   (panels mod_visual_settings_panel)
+   (focus mod_visual_settings_panel)
+   (back mod_settings_screen)
+}
+{new UIPanel
+   mod_hud_settings_panel
+   SETTINGS_LIST_FILE
+   (title os_hud_settings)
+   (data (
+      (os_hide_hud
+         (type uOnOFF)
+         (bool $hide_hud)
+         (sel_script {toggle_var hide_hud})
+      )
+      (os_goldprogress
+         (type uOnOFF)
+         (bool $goldprogress)
+         (sel_script {toggle_var goldprogress})
+      )
+      (os_progressbar
+         (type uOnOFF)
+         (bool $progressbar)
+         (sel_script {toggle_var progressbar})
+      )
+      (os_show_timer
+         (type uOnOFF)
+         (bool $show_timer)
+         (sel_script {toggle_var show_timer})
+      )
+      (os_show_pb
+         (type uOnOFF)
+         (bool $show_pb)
+         (sel_script {toggle_var show_pb})
+      )
+      (os_show_steak
+         (type uOnOFF)
+         (bool $show_steak)
+         (sel_script {toggle_var show_steak})
+      )
+      (os_input_viewer
+         (type uOnOFF)
+         (bool $input_viewer)
+         (sel_script {toggle_var input_viewer})
+      )
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG {os_sel_common})
+}
+{new UIScreen
+   mod_hud_settings_screen
+   (panels mod_hud_settings_panel)
+   (focus mod_hud_settings_panel)
+   (back mod_visual_settings_screen)
+}
+{new UIPanel
+   mod_force_plot_panel
+   SETTINGS_LIST_FILE
+   (title os_force_plot)
+   (data (
+      off
+      ;plot_airport
+      plot_bodega_a
+      plot_bodegapartment_a
+      ;plot_bridge
+      plot_brownstone_a
+      plot_brownstone_b
+      ;plot_brownstone_c
+      plot_bus_used_car
+      plot_firehouse_townhall
+      plot_gasstation_a
+      plot_hotel_a
+      ;plot_outro_blitz
+      ;plot_park
+      plot_quickmart_a
+      ;plot_river
+      plot_stores_a
+      plot_subway_a
+      plot_subwaylong_a
+      ;plot_subway_bridge
+      plot_theater_a
+      plot_tokyo_a
+      plot_tokyo_b
+      plot_tokyo_c
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG
+      {set $forceplot
+         {if_else {$component selected_pos}
+            {$component selected_sym}
+            FALSE
+         }
+      }
+      {pop_and_goto_screen mod_visual_settings_screen}
+   )
+}
+{new UIScreen
+   mod_force_plot_screen
+   (panels mod_force_plot_panel)
+   (focus mod_force_plot_panel)
+   (back mod_visual_settings_screen)
+}
+{new UIPanel
+   mod_force_skybox_panel
+   SETTINGS_LIST_FILE
+   (title os_force_skybox)
+   (data (
+      default_skybox
+      no_skybox
+      nfs_mw2012
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG
+      {set $which_skybox {$component selected_pos}}
+      {pop_and_goto_screen mod_visual_settings_screen}
+   )
+}
+{new UIScreen
+   mod_force_skybox_screen
+   (panels mod_force_skybox_panel)
+   (focus mod_force_skybox_panel)
+   (back mod_visual_settings_screen)
+}
+{new UIPanel
+   mod_other_settings_panel
+   SETTINGS_LIST_FILE
+   (title mod_other)
+   (data (
+      (os_unlock_all
+         (type uOnOFF)
+         (bool $unlockall)
+         (reboot TRUE)
+         (sel_script {toggle_var unlockall})
+      )
+      #ifdef HX_PS3
+      (os_server_url
+         (type uOnOFF)
+         (bool $server_url)
+         (reboot TRUE)
+         (sel_script
+            {virtual_keyboard show_keyboard
+               $user
+               50
+               {localize server_url}
+               {localize server_url}
+               {if_else $server_url $server_url "ps3-blitz-live.hmxservices.com"}
+               $this
+            }
+         )
+      )
+      (os_server_ssl
+         (type uOnOFF)
+         (bool $server_ssl)
+         (reboot TRUE)
+         (sel_script {toggle_var server_ssl})
+      )
+      (os_p9dlc
+         (type uOnOFF)
+         (bool $p9dlc)
+         (reboot TRUE)
+         (sel_script {toggle_var p9dlc})
+      )
+      #endif
+      (os_online_acc
+         (type uNormal)
+         (sel_script
+            {foreach $acc
+               (
+                  acc_high_cred
+                  acc_higher_cred
+                  acc_total_coins_spent
+                  acc_create_challenge
+               )
+               {acc_mgr earn_accomplishment $acc}
+            }
+         )
+      )
+   ))
+   (enter {os_setup_common})
+   (BUTTON_DOWN_MSG {os_down_common})
+   (SELECT_MSG {os_sel_common})
+   (VIRTUAL_KEYBOARD_RESULT_MSG
+      {if {&& $ok $this}
+         {set $server_url $text}
+      }
+      {lst_reset}
+   )
+}
+{new UIScreen
+   mod_other_settings_screen
+   (panels mod_other_settings_panel)
+   (focus mod_other_settings_panel)
+   (back mod_settings_screen)
+}

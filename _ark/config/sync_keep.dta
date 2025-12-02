@@ -1,4 +1,5 @@
 #include macros.dta
+#include ../ulti/ulti_macros.dta
 (long_cheats
    #include ../ulti/long_cheats.dta)
 (version
