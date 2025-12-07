@@ -5,22 +5,26 @@
       {progress_bar.sld set slider_resource progress_bar}
       {progress_bar.sld set_num_steps 100}
       {{band_meter_hud find draw.grp} add_object progress_bar.sld}
-      {progress_bar.sld set_local_pos -413.50 -1.00 -84.00}
+      {progress_bar.sld set_local_pos -115.00 -1.00 -89.00}
+      {progress_bar.sld set_trans_parent band_meter_hud}
       {progress_bar.sld set_local_rot 0 -90 0}
       {progress_bar.sld set_showing $progressbar}
 
       {new UILabel streak.lbl}
       {streak.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {streak.lbl set_int 0}
-      {streak.lbl set_local_pos {if_else $show_steak -406.70 -500} 0.00 -115.00}
+      {streak.lbl set_local_pos -108 0.00 -120.00}
+      {streak.lbl set_trans_parent band_meter_hud}
       {streak.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
       {streak.lbl set (styles 0 text_size) 12}
+      {streak.lbl set_showing $show_steak}
       {hud.grp add_object streak.lbl}
 
       {new UILabel timer.lbl}
       {timer.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {timer.lbl set_token_fmt " "}
-      {timer.lbl set_local_pos -421.00 0.00 -230.00}
+      {timer.lbl set_local_pos -123 0.00 -235.00}
+      {timer.lbl set_trans_parent band_meter_hud}
       {timer.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
       {timer.lbl set alignment kMiddleLeft}
       {timer.lbl set_showing $show_timer}
@@ -29,25 +33,11 @@
       {new TransAnim timer.tnm}
       {timer.tnm set_trans timer.lbl}
       {timer.tnm set_trans_spline TRUE}
-      {timer.tnm add_trans_key -422.00 0.00 -245.00 0}
-      {timer.tnm add_trans_key -422.00 0.00 -230.00 1}
+      {timer.tnm add_trans_key -123.00 0.00 -250.00 0}
+      {timer.tnm add_trans_key -123.00 0.00 -235.00 1}
       {timer.tnm set_frame 0}
 
       {if {&& $pb {! {is_online}}}
-         {new UILabel pb.lbl}
-         {pb.lbl copy {error_popup_panel find error.lbl} kCopyDeep}
-         {pb.lbl set_token_fmt new_pb}
-         {pb.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
-         {hud.grp add_object pb.lbl}
-
-         {new TransAnim pb.tnm}
-         {pb.tnm set_trans pb.lbl}
-         {pb.tnm set_trans_spline TRUE}
-         {pb.tnm add_trans_key 530.00 0.00 121.00 0}
-         {pb.tnm add_trans_key 267.00 0.00 121.00 0.10}
-         {pb.tnm add_trans_key 530.00 0.00 121.00 1}
-         {pb.tnm set_frame 0}
-         
          {with dynamic_leaderboard
             {unless [has_data]
                {foreach $anim (player_range.anim competitor_0_range.anim)
@@ -66,7 +56,8 @@
       {new UILabel inputs.lbl}
       {inputs.lbl copy {error_popup_panel find continue.lbl} kCopyDeep}
       {inputs.lbl set_token_fmt " "}
-      {inputs.lbl set_local_pos -420.00 0.00 227.00}
+      {inputs.lbl set_local_pos -121 0.00 223.00}
+      {inputs.lbl set_trans_parent band_meter_hud}
       {inputs.lbl set (styles 0 font_resource) buttons}
       {inputs.lbl set (styles 0 text_size) 20}
       {inputs.lbl set alignment kMiddleLeft}
@@ -83,6 +74,21 @@
       {score.lbl set_showing FALSE}
       {hud.grp set_showing FALSE}
       {{star_board find draw.grp} set_showing FALSE}
+   }
+   {if {&& {== {rnd aspect} kLetterboxAspect} {! $letterbox}} ; letterbox or something
+      {rnd set_aspect kRegularAspect}
+      {with {get_hud}
+         {star_board          set_local_pos  220.00 0.00  143.85}
+         {score.lbl           set_local_pos  220.00 0.00  187.85}
+         {band_meter_hud      set_local_pos -200.54 25.00 4.35}
+         {dynamic_leaderboard set_local_pos  295.00 25.00 2.51}
+         {delete overdrive.anim}
+         {with {dynamic_leaderboard find competitor_board_0}
+            {gamertag_id.anim set_frame 0}
+            {delete gamertag_id.anim}
+            {gamertag_frame.mat set color 255}
+         }
+      }
    }
 }
 {with $wtd

@@ -27,6 +27,11 @@
          }
       }
    )
+   (unload
+      {if {== {rnd aspect} kRegularAspect}
+         {rnd set_aspect kLetterboxAspect}
+      }
+   )
    (is_in_demo_mode {is_in_demo_game_state})
    (get_demo_config {get_demo_config})
 }

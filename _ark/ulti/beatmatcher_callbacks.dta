@@ -35,11 +35,7 @@
             }
             {if {&& {! $pbn} {> $score $pb}}
                {set $pbn TRUE}
-               {{{get_hud} find pb.tnm} animate
-                  (units kTaskSeconds)
-                  (period 6)
-                  (range 0 1)
-               }
+               {$this player_won}
             }
          }
       }

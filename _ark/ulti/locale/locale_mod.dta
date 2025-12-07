@@ -38,6 +38,7 @@
 (default "DEFAULT")
 (high "HIGH")
 (low "LOW")
+(os_letterbox "4:3 Letterboxing")
 (os_cameraangle "Camera Angle: %s")
 (plot_bodega_a "Bodega A")
 (plot_bodegapartment_a "Bodega Apartment A")

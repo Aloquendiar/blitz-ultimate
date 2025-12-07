@@ -16,7 +16,6 @@
    mod_settings_panel
    SETTINGS_LIST_FILE
    (should_warn)
-   (warn_pos 4)
    (title mod_settings)
    (data (
       (mod_game
@@ -112,6 +111,11 @@
          (type uOnOFF)
          (bool $disable_dof)
          (sel_script {toggle_var disable_dof})
+      )
+      (os_letterbox
+         (type uOnOFF)
+         (bool $letterbox)
+         (sel_script {toggle_var letterbox})
       )
       (os_hud_settings
          (type uNormal)
