@@ -183,13 +183,63 @@
       }
       {player_state.ep add_sink disco_start (gem_hit)}
    }
-   {if $gems
+   {if $gems {do
+      ($order {array 0})
+      {foreach $inst (drum bass guitar vocals keys)
+         {if {song_mgr rank_tier_for_song $cur_song_id $inst}
+            {push_back $order $inst}
+         }
+      }
+      {while {!= {size $order} 5}
+         {push_back $order drum}
+      }
       {track iterate SingleTrackDir $std
-         {if {&& {{$std find track_data.ep} get track_type} {!= {$std name} single_track5}}
+         {if {!= {$std name} single_track5}
             {with $std
                {gem.wid clear (multi_meshes)}
                {switch $gems
-                  (1
+                  (amp2003
+                     {gem.wid append (multi_meshes)
+                        {$gems_dir find
+                           {switch {elem $order {siti {str_elem {$std name} 12}}}
+                              (drum gem_green_ring.mm)
+                              (bass gem_red_ring.mm)
+                              (guitar gem_yellow_ring.mm)
+                              (vocals gem_blue_ring.mm)
+                              (keys gem_orange_ring.mm)
+                           }
+                        }
+                     }
+                     {gem.wid append (multi_meshes) {$gems_dir find middle_gem.mm}}
+
+                     {gem_shiny.wid clear (multi_meshes)}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find gem_white_ring.mm}}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find middle_gem.mm}}
+                  )
+                  (amp2016
+                     {gem.wid append (multi_meshes)
+                        {$gems_dir find
+                           {switch {elem $order {siti {str_elem {$std name} 12}}}
+                              (drum gem_crystal_green.mm)
+                              (bass gem_crystal_red.mm)
+                              (guitar gem_crystal_yellow.mm)
+                              (vocals gem_crystal_blue.mm)
+                              (keys gem_crystal_orange.mm)
+                           }
+                        }
+                     }
+
+                     {gem_shiny.wid clear (multi_meshes)}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find gem_crystal_style.mm}}
+                  )
+                  (monkey
+                     {gem.wid append (multi_meshes) {$gems_dir find monkey0.mm}}
+
+                     {gem_shiny.wid clear (multi_meshes)}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find gem_white_ring.mm}}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find middle_gem.mm}}
+                  )
+                  (ulti
                      {new Tex gem_ulti.tex}
                      {gem_ulti.tex set_bitmap "ulti/textures/gems/gem_ulti.png"}
                      {new Mat ulti_logo.mat}
@@ -198,27 +248,27 @@
                      {gem_directional_0.mesh set mat ulti_logo.mat}
                      {gem.wid append (multi_meshes) gem_directional_0.mm}
                   )
-                  (2
+                  (x
                      {gem_powerup_multi.mat set color 
-                        {switch {$std name}
-                           (single_track0 {pack_color 0 1 0})
-                           (single_track1 {pack_color 1 0 0})
-                           (single_track2 {pack_color 1 1 0})
-                           (single_track3 {pack_color 0.31 0.6 1})
-                           (single_track4 {pack_color 1 0.5 0})
+                        {switch {elem $order {siti {str_elem {$std name} 12}}}
+                           (drum {pack_color 0 1 0})
+                           (bass {pack_color 1 0 0})
+                           (guitar {pack_color 1 1 0})
+                           (vocals {pack_color 0.31 0.6 1})
+                           (keys {pack_color 1 0.5 0})
                            0
                         }
                      }
                      {gem.wid append (multi_meshes) gem_power_multi.mm}
                   )
-                  (3
+                  (bolt
                      {gem_powerup_frenzy.mat set color 
-                        {switch {$std name}
-                           (single_track0 {pack_color 0 1 0})
-                           (single_track1 {pack_color 1 0 0})
-                           (single_track2 {pack_color 1 1 0})
-                           (single_track3 {pack_color 0.31 0.6 1})
-                           (single_track4 {pack_color 1 0.5 0})
+                        {switch {elem $order {siti {str_elem {$std name} 12}}}
+                           (drum {pack_color 0 1 0})
+                           (bass {pack_color 1 0 0})
+                           (guitar {pack_color 1 1 0})
+                           (vocals {pack_color 0.31 0.6 1})
+                           (keys {pack_color 1 0.5 0})
                            0
                         }
                      }
@@ -229,4 +279,4 @@
          }
       }
    }
-}
+}}

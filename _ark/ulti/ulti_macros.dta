@@ -6,6 +6,7 @@
 #define uColor     (1)
 #define uSpeed     (2)
 #define uAngle     (3)
+#define uLocalize  (4)
 
 #define OS_LIST (pause.lst)
 

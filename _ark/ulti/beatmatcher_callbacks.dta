@@ -6,6 +6,7 @@
          (range 0 1)
       }
       {set $timeranim TRUE}
+      {animate_gems}
    }
    {with $wtd
       {if {&& $pb {! {is_online}}}

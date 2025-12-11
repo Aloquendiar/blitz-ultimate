@@ -146,6 +146,12 @@
          (reboot TRUE)
          (sel_script {pop_and_goto_screen mod_force_skybox_screen})
       )
+      (os_gems_fmt
+         (type uFakeSld)
+         (fmt_type uLocalize)
+         (var gems)
+         (array (default amp2003 amp2016 monkey ulti x bolt))
+      )
    ))
    (enter {os_setup_common})
    (BUTTON_DOWN_MSG {os_down_common})

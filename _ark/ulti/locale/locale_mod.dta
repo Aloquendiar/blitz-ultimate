@@ -40,6 +40,7 @@
 (low "LOW")
 (os_letterbox "4:3 Letterboxing")
 (os_cameraangle "Camera Angle: %s")
+(os_gems_fmt "Gems: %s")
 (os_speedmod "Game Speed: %d%")
 (plot_bodega_a "Bodega A")
 (plot_bodegapartment_a "Bodega Apartment A")

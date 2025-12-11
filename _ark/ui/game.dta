@@ -1,25 +1,26 @@
 {new GamePanel
    game_panel
-   (enter {set $buttonArray {array ()}})
+   (buttons ())
+   (enter {set [buttons] {array 0}})
    (BUTTON_DOWN_MSG
       {do
          ($str {raw_button_str $raw_button})
-         {if {&& $str {! {find_elem $buttonArray $str}}}
-            {push_back $buttonArray $str}
+         {if {&& $str {! {find_elem [buttons] $str}}}
+            {push_back [buttons] $str}
          }
       }
       {$this update_input_viewer}
       kDataUnhandled
    )
    (BUTTON_UP_MSG
-      {remove_elem $buttonArray {raw_button_str $raw_button}}
+      {remove_elem [buttons] {raw_button_str $raw_button}}
       {$this update_input_viewer}
       kDataUnhandled
    )
    (update_input_viewer
       {do
          ($string "")
-         {foreach $button $buttonArray
+         {foreach $button [buttons]
             {strcat $string $button}
          }
          {with {get_hud}
@@ -57,7 +58,7 @@
             }
          )
          {if $should_pause
-            {set $buttonArray {array ()}}
+            {game_panel set buttons {array 0}}
             {game_panel update_input_viewer}
             {$this pause}
          }
