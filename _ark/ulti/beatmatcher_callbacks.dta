@@ -73,4 +73,5 @@
          }
       }
    }
+   {audio set_music_speed {max $speedmod 1.00}}
 )

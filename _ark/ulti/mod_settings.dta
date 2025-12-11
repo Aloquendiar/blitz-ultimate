@@ -91,6 +91,13 @@
          (step 1)
          (range 0 2)
       )
+      (os_speedmod
+         (type uSld)
+         (fmt_type uSpeed)
+         (var speedmod)
+         (step 0.05)
+         (range 1.00 1.50)
+      )
    ))
    (enter {os_setup_common})
    (BUTTON_DOWN_MSG {os_down_common})
