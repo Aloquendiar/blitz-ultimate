@@ -183,7 +183,7 @@
       }
       {player_state.ep add_sink disco_start (gem_hit)}
    }
-   {if $gems {do
+   {if {&& $gems {!= $gems default}} {do
       ($order {array 0})
       {foreach $inst (drum bass guitar vocals keys)
          {if {song_mgr rank_tier_for_song $cur_song_id $inst}
