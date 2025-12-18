@@ -56,9 +56,9 @@
    #endif
    #include ../config/meta_funcs.dta
    #include shell_sfx.dta
+   #autorun {run ulti/ulti_init.dta}
+   #autorun {run ulti/ulti_funcs.dta}
    #include ../ulti/mod_settings.dta
-   #include ../ulti/ulti_funcs.dta
-   #autorun {do #include ../ulti/ulti_init.dta}
    #include ../ulti/pers_tex.dta
    {ui set_sink shell_sfx}
    {platform_mgr set_notify_ui_location kOSNotifyBottomCenter}

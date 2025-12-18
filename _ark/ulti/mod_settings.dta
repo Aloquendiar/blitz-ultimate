@@ -35,8 +35,9 @@
    (BUTTON_DOWN_MSG
       {if {find_elem (kAction_Cancel kAction_ViewModify) $action}
          #ifndef HX_3DS
-         {ulti_settings_writer}
+         {mod_settings_rw save_settings}
          #endif
+         {set [pos] (0 0)}
          {if_else [should_warn]
             {do
                {$this set_showing FALSE}
@@ -44,10 +45,7 @@
                {mod_settings_screen set_focus_panel mod_warning_panel}
                {set [should_warn] FALSE}
             }
-            {do
-               {set [pos] (0 0)}
-               {$this handle_leave}
-            }
+            {$this handle_leave}
          }
       }
       kDataUnhandled

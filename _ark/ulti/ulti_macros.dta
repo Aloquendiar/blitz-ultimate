@@ -26,3 +26,16 @@
 )
 
 #define CUSTOMSOURCE (1)
+
+#ifdef HX_PS3
+   #ifdef REGION_EUROPE
+      #define MOD_SETTINGS_PATH ("GD:/dev_hdd0/game/NPEB00988/USRDIR/ulti_settings.dta")
+      #define OLD_MOD_SETTINGS_PATH ("GD:/dev_hdd0/game/NPEB00988/USRDIR/ulti_settings.ini")
+   #else
+      #define MOD_SETTINGS_PATH ("GD:/dev_hdd0/game/NPUB30749/USRDIR/ulti_settings.dta")
+      #define OLD_MOD_SETTINGS_PATH ("GD:/dev_hdd0/game/NPUB30749/USRDIR/ulti_settings.ini")
+   #endif
+#else
+   #define MOD_SETTINGS_PATH ("GAME:/ulti_settings.dta")
+   #define OLD_MOD_SETTINGS_PATH ("GAME:/ulti_settings.ini")
+#endif

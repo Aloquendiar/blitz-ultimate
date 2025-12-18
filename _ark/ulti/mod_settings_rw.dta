@@ -1,0 +1,71 @@
+{new Object
+   mod_settings_rw
+   (vars (
+      freq_ms
+      disable_dof
+      which_skybox
+      disable_random_wiggles
+      disable_plots
+      forceplot
+      server_url
+      server_ssl
+      p9dlc
+      hide_hud
+      goldprogress
+      progressbar
+      show_timer
+      show_pb
+      show_steak
+      input_viewer
+      controller_mapping
+      camera_angle
+      letterbox
+      gems
+      speedmod
+   ))
+   (save_settings
+      {print_ship "attempting to save mod settings"}
+      {do
+         ($array {array 0})
+         ($controller_mapping {save_data get_controller_mapping})
+         {foreach $s [vars]
+            {push_back $array {array ($s {eval_var $s})}}
+         }
+         {write_file MOD_SETTINGS_PATH $array}
+         {print_ship "mod settings saved"}
+      }
+   )
+   (load_settings
+      {cond
+         ({file_exists MOD_SETTINGS_PATH}
+            {print_ship "attempting to load mod settings"}
+            {do
+               ($array {read_file MOD_SETTINGS_PATH})
+               {foreach $s [vars]
+                  {do
+                     ($var {find_exists $array $s})
+                     {if $var
+                        {print_ship $var}
+                        {set_var $s {elem $var 1}}
+                     }
+                  }
+               }
+               {print_ship "mod settings loaded"}
+            }
+         )
+         ({file_exists OLD_MOD_SETTINGS_PATH}
+            {print_ship "attempting to load old mod settings"}
+            {do
+               ($array {read_file OLD_MOD_SETTINGS_PATH})
+               {run "ulti/old_mod_settings_r.dta"}
+               {print_ship "old mod settings loaded"}
+            }
+         )
+         (TRUE
+            {print_ship "no mod settings found!"}
+            {set $no_settings_file TRUE}
+         )
+      }
+   )
+}
+{mod_settings_rw load_settings}

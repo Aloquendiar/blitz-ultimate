@@ -516,3 +516,12 @@
       kDataUnhandled
    }
 }
+{func print_ship
+   ($s)
+   #ifdef HX_PS3
+   {run {sprintf "GD:/%d    %s    %d" {random_int 100 1000} {sprint $s} {random_int 100 1000}}}
+   #else
+   kDataUnhandled
+   #endif
+}
+#include mod_settings_rw.dta

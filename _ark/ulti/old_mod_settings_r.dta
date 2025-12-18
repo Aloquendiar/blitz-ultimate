@@ -1,0 +1,92 @@
+; this is fucking awful lmao 
+{foreach $entry $array
+   {if {== {elem $entry 0} {basename settings}}
+      {if {find $entry precision}
+         {set $freq_ms
+            {elem {find $entry precision} 1}
+         }
+      }
+      {if {find $entry disable_dof}
+         {set $disable_dof
+            {elem {find $entry disable_dof} 1}
+         }
+      }
+      {if {find $entry which_skybox}
+         {set $which_skybox
+            {elem {find $entry which_skybox} 1}
+         }
+      }
+      {if {find $entry controller_mapping}
+         {set $controller_mapping
+            {elem {find $entry controller_mapping} 1}
+         }
+      }
+      {if {find $entry disable_random_wiggles}
+         {set $disable_random_wiggles
+            {elem {find $entry disable_random_wiggles} 1}
+         }
+      }
+      {if {find $entry disable_plots}
+         {set $disable_plots
+            {elem {find $entry disable_plots} 1}
+         }
+      }
+      {if {find $entry force_plot}
+         {set $forceplot
+            {elem {find $entry force_plot} 1}
+         }
+      }
+      {if {find $entry server_url}
+         {set $server_url
+            {elem {find $entry server_url} 1}
+         }
+      }
+      {if {find $entry server_ssl}
+         {set $server_ssl
+            {elem {find $entry server_ssl} 1}
+         }
+      }
+      {if {find $entry tbrb_dlc}
+         {set $p9dlc
+            {elem {find $entry tbrb_dlc} 1}
+         }
+      }
+   }
+   {if {== {elem $entry 0} {basename hud}}
+      {if {find $entry hide_hud}
+         {set $hide_hud
+            {elem {find $entry hide_hud} 1}
+         }
+      }
+      {if {find $entry gold_star_progress}
+         {set $goldprogress
+            {elem {find $entry gold_star_progress} 1}
+         }
+      }
+      {if {find $entry song_progress_bar}
+         {set $progressbar
+            {elem {find $entry song_progress_bar} 1}
+         }
+      }
+      {if {find $entry show_timer}
+         {set $show_timer
+            {elem {find $entry show_timer} 1}
+         }
+      }
+      {if {find $entry show_personal_best}
+         {set $show_pb
+            {elem {find $entry show_personal_best} 1}
+         }
+      }
+      {if {find $entry show_steak}
+         {set $show_steak
+            {elem {find $entry show_steak} 1}
+         }
+      }
+      {if {find $entry input_viewer}
+         {set $input_viewer
+            {elem {find $entry input_viewer} 1}
+         }
+      }
+   }
+}
