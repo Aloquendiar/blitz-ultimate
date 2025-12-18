@@ -148,7 +148,7 @@
          (type uFakeSld)
          (fmt_type uLocalize)
          (var gems)
-         (array (default amp2003 amp2016 monkey ulti x bolt))
+         (array (default freq amp2003 amp2016 monkey ulti x bolt))
       )
    ))
    (enter {os_setup_common})

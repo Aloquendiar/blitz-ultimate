@@ -239,6 +239,22 @@
                      {gem_shiny.wid append (multi_meshes) {$gems_dir find gem_white_ring.mm}}
                      {gem_shiny.wid append (multi_meshes) {$gems_dir find middle_gem.mm}}
                   )
+                  (freq
+                     {gem.wid append (multi_meshes)
+                        {$gems_dir find
+                           {switch {elem $order {siti {str_elem {$std name} 12}}}
+                              (drum gem_green_ring.mm)
+                              (bass gem_red_ring.mm)
+                              (guitar gem_yellow_ring.mm)
+                              (vocals gem_blue_ring.mm)
+                              (keys gem_orange_ring.mm)
+                           }
+                        }
+                     }
+
+                     {gem_shiny.wid clear (multi_meshes)}
+                     {gem_shiny.wid append (multi_meshes) {$gems_dir find gem_white_ring.mm}}
+                  )
                   (ulti
                      {new Tex gem_ulti.tex}
                      {gem_ulti.tex set_bitmap "ulti/textures/gems/gem_ulti.png"}

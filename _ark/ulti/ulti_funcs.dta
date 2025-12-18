@@ -460,6 +460,7 @@
             {switch $gems
                ((amp2003 monkey) "ulti/track/gems/amp2003/amp2003.milo")
                (amp2016 "ulti/track/gems/amp2016/amp2016.milo")
+               (freq "ulti/track/gems/freq/freq.milo")
             }
          )
          {if $file
@@ -477,7 +478,7 @@
 }
 {func animate_gems
    {switch $gems
-      ((amp2003 monkey)
+      ((amp2003 monkey freq)
          {with $gems_dir
             {$this set rot 0.0}
             {thread_task kTaskSeconds
