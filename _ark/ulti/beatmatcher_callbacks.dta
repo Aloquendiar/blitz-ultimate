@@ -33,10 +33,15 @@
                      {set $prevrange $range}
                   }
                }
-            }
-            {if {&& {! $pbn} {> $score $pb}}
-               {set $pbn TRUE}
-               {$this player_won}
+               {if {&& {! $pbn} {> $score $pb}}
+                  {set $pbn TRUE}
+                  {$this player_won}
+                  {{{get_hud} find pb.tnm} animate
+                     (units kTaskSeconds)
+                     (period 6)
+                     (range 0 1)
+                  }
+               }
             }
          }
       }

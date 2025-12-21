@@ -38,6 +38,22 @@
       {timer.tnm set_frame 0}
 
       {if {&& $pb {! {is_online}}}
+         {new UILabel pb.lbl}
+         {pb.lbl copy {error_popup_panel find error.lbl} kCopyDeep}
+         {pb.lbl set_token_fmt new_pb}
+         {pb.lbl set (styles 0 font_resource) eagle_book_blitzlabel}
+         {pb.lbl set_trans_parent dynamic_leaderboard}
+         {pb.lbl set_local_scale 2.5 2.5 2.5}
+         {hud.grp add_object pb.lbl}
+
+         {new TransAnim pb.tnm}
+         {pb.tnm set_trans pb.lbl}
+         {pb.tnm set_trans_spline TRUE}
+         {pb.tnm add_trans_key 600.00 0.00 300.00 0}
+         {pb.tnm add_trans_key -200.00 0.00 300.00 0.10}
+         {pb.tnm add_trans_key 600.00 0.00 300.00 1}
+         {pb.tnm set_frame 0}
+
          {with dynamic_leaderboard
             {unless [has_data]
                {foreach $anim (player_range.anim competitor_0_range.anim)

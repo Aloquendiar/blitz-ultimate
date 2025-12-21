@@ -23,13 +23,6 @@
    }
 )
 (
-   (kPad_L3 kPad_L3 kPad_L3 kPad_L3 kPad_R3 kPad_R3 kPad_R3 kPad_R3 kPad_L3)
-   {if CHEATS_ALLOWED
-      {set $gems {cycle_int 1 3 $gems}}
-      {shell_sfx play_purchase_error}
-   }
-)
-(
    (kPad_DRight kPad_DDown kPad_DUp kPad_DUp kPad_DUp kPad_DRight kPad_DLeft kPad_DRight)
    {if CHEATS_ALLOWED
       {set $mysteriocheats {! $mysteriocheats}}
