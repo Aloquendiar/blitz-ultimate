@@ -1,0 +1,13 @@
+Differences found in track 'PART DRUMS':
+Time: 185280, added: TOM GEMS PAD 3
+Time: 185400, added: TOM GEMS PAD 3
+Time: 186720, added: TOM GEMS PAD 3
+Time: 186840, added: TOM GEMS PAD 3
+Time: 186960, added: TOM GEMS PAD 3
+Time: 187080, added: TOM GEMS PAD 3
+Time: 187200, added: TOM GEMS PAD 3
+Time: 187320, added: TOM GEMS PAD 3
+Time: 187440, added: TOM GEMS PAD 4
+Time: 187560, added: TOM GEMS PAD 4
+Time: 234240, added: TOM GEMS PAD 3
+Time: 236040, added: TOM GEMS PAD 3

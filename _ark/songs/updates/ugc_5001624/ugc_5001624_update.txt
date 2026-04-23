@@ -1,0 +1,6 @@
+Differences found in track 'PART DRUMS':
+Time: 114720, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 114840, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Text differences found in track 'PART DRUMS':
+Time: 176639, Text event changed from '[no event]' to '[idle_realtime]'
+Time: 176640, Text event changed from '[idle_realtime]' to '[no event]'

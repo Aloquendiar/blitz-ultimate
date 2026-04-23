@@ -1,0 +1,234 @@
+Differences found in track 'PART DRUMS':
+Time: 18480, added: TOM GEMS PAD 2
+Time: 19440, added: TOM GEMS PAD 2
+Time: 41520, added: TOM GEMS PAD 2
+Time: 42480, added: TOM GEMS PAD 2
+Time: 59120, added: TOM GEMS PAD 2
+Time: 59200, added: TOM GEMS PAD 2
+Time: 59280, added: TOM GEMS PAD 2
+Time: 59360, added: TOM GEMS PAD 2
+Time: 59440, added: TOM GEMS PAD 3
+Time: 69840, added: TOM GEMS PAD 2
+Time: 69960, added: TOM GEMS PAD 2
+Time: 70080, added: TOM GEMS PAD 2
+Time: 70200, added: TOM GEMS PAD 2
+Time: 70320, added: TOM GEMS PAD 2
+Time: 70440, added: TOM GEMS PAD 2
+Time: 70560, added: TOM GEMS PAD 3
+Time: 70680, added: TOM GEMS PAD 3
+Time: 70800, added: TOM GEMS PAD 3
+Time: 70920, added: TOM GEMS PAD 3
+Time: 72720, added: TOM GEMS PAD 2
+Time: 72840, added: TOM GEMS PAD 2
+Time: 72960, removed: HARD Yellow, EASY Yellow, MEDIUM Yellow, added: TOM GEMS PAD 2
+Time: 73024, added: EXPERT Yellow
+Time: 73024, added: EXPERT Kick
+Time: 73024, added: TOM GEMS PAD 2
+Time: 73080, removed: EXPERT Yellow
+Time: 73140, added: HARD Yellow
+Time: 73140, added: EXPERT Yellow
+Time: 73140, added: EXPERT Kick
+Time: 73140, added: TOM GEMS PAD 2
+Time: 73200, removed: HARD Yellow
+Time: 73200, removed: EXPERT Yellow
+Time: 73200, removed: EXPERT Kick
+Time: 73260, added: HARD Yellow
+Time: 73260, added: TOM GEMS PAD 2
+Time: 73260, added: EXPERT Yellow
+Time: 73260, added: EXPERT Kick
+Time: 73320, removed: EXPERT Yellow
+Time: 73380, added: EASY Blue
+Time: 73380, added: MEDIUM Blue
+Time: 73380, added: HARD Blue
+Time: 73380, added: EXPERT Blue
+Time: 73380, added: TOM GEMS PAD 3
+Time: 73380, added: EXPERT Kick
+Time: 73380, added: EXPERT Yellow
+Time: 73380, added: TOM GEMS PAD 2
+Time: 73440, removed: EASY Blue
+Time: 73440, removed: EXPERT Kick
+Time: 73440, removed: MEDIUM Blue
+Time: 73440, removed: HARD Blue
+Time: 73440, removed: EXPERT Blue
+Time: 73500, added: TOM GEMS PAD 3
+Time: 73500, added: EASY Blue
+Time: 73500, added: EXPERT Kick
+Time: 73500, added: MEDIUM Blue
+Time: 73500, added: HARD Blue
+Time: 73500, added: EXPERT Blue
+Time: 73560, removed: EXPERT Blue
+Time: 73620, added: TOM GEMS PAD 3
+Time: 73620, added: HARD Blue
+Time: 73620, added: EXPERT Kick
+Time: 73620, added: EXPERT Blue
+Time: 73680, removed: HARD Blue
+Time: 73680, removed: EXPERT Kick
+Time: 73680, removed: EXPERT Blue
+Time: 73740, added: TOM GEMS PAD 3
+Time: 73740, added: HARD Blue
+Time: 73740, added: EXPERT Kick
+Time: 73740, added: EXPERT Blue
+Time: 73800, removed: EXPERT Blue
+Time: 73860, added: DRUM FILL
+Time: 73860, added: DRUM FILL (use all 5)
+Time: 73860, added: EXPERT Blue
+Time: 73860, added: DRUM FILL
+Time: 73860, added: HARD Green
+Time: 73860, added: TOM GEMS PAD 3
+Time: 73860, added: HARD Kick
+Time: 73860, added: EXPERT Green
+Time: 73860, added: DRUM FILL
+Time: 73860, added: EXPERT Kick
+Time: 73860, added: EASY Green
+Time: 73860, added: DRUM FILL
+Time: 73860, added: MEDIUM Green
+Time: 73920, removed: DRUM FILL
+Time: 73920, removed: DRUM FILL (use all 5)
+Time: 73920, removed: HARD Green
+Time: 73920, removed: DRUM FILL
+Time: 73920, removed: EXPERT Green
+Time: 73920, removed: HARD Kick
+Time: 73920, removed: DRUM FILL
+Time: 73920, removed: EXPERT Kick
+Time: 73920, removed: EASY Green
+Time: 73920, removed: DRUM FILL
+Time: 73920, removed: MEDIUM Green
+Time: 73980, added: EXPERT Green
+Time: 73980, added: HARD Kick
+Time: 73980, added: EXPERT Kick
+Time: 73980, added: EASY Green
+Time: 73980, added: MEDIUM Green
+Time: 73980, added: HARD Green
+Time: 82077, added: TOM GEMS PAD 3
+Time: 82140, added: TOM GEMS PAD 3
+Time: 82320, added: TOM GEMS PAD 3
+Time: 82800, added: TOM GEMS PAD 3
+Time: 83280, added: TOM GEMS PAD 3
+Time: 83520, added: TOM GEMS PAD 3
+Time: 84000, added: TOM GEMS PAD 3
+Time: 107520, added: TOM GEMS PAD 2
+Time: 107680, added: TOM GEMS PAD 2
+Time: 107840, added: TOM GEMS PAD 2
+Time: 108000, added: TOM GEMS PAD 3
+Time: 108160, added: TOM GEMS PAD 3
+Time: 108320, added: TOM GEMS PAD 3
+Time: 115200, added: TOM GEMS PAD 2
+Time: 115360, added: TOM GEMS PAD 2
+Time: 115520, added: TOM GEMS PAD 2
+Time: 115680, added: TOM GEMS PAD 3
+Time: 115840, added: TOM GEMS PAD 3
+Time: 116000, added: TOM GEMS PAD 3
+Time: 122880, added: TOM GEMS PAD 2
+Time: 123040, added: TOM GEMS PAD 2
+Time: 123200, added: TOM GEMS PAD 2
+Time: 123360, added: TOM GEMS PAD 3
+Time: 123520, added: TOM GEMS PAD 3
+Time: 123680, added: TOM GEMS PAD 3
+Time: 130560, added: TOM GEMS PAD 2
+Time: 130720, added: TOM GEMS PAD 2
+Time: 130880, added: TOM GEMS PAD 2
+Time: 131040, added: TOM GEMS PAD 3
+Time: 131200, added: TOM GEMS PAD 3
+Time: 131360, added: TOM GEMS PAD 3
+Time: 141109, added: TOM GEMS PAD 3
+Time: 141109, added: EASY Blue
+Time: 141109, added: MEDIUM Blue
+Time: 141109, added: HARD Blue
+Time: 141109, added: EXPERT Blue
+Time: 141120, removed: MEDIUM Blue
+Time: 141120, removed: HARD Blue
+Time: 141120, removed: EASY Blue
+Time: 141120, removed: EXPERT Blue
+Time: 141180, added: TOM GEMS PAD 3
+Time: 141180, added: EASY Blue
+Time: 141180, added: MEDIUM Blue
+Time: 141180, added: HARD Blue
+Time: 141180, added: EXPERT Blue
+Time: 141200, removed: EXPERT Blue
+Time: 141249, added: TOM GEMS PAD 3
+Time: 141249, added: EXPERT Blue
+Time: 141280, removed: EXPERT Blue
+Time: 141329, added: TOM GEMS PAD 3
+Time: 141329, added: HARD Blue
+Time: 141329, added: EXPERT Blue
+Time: 141360, removed: HARD Blue
+Time: 141360, removed: EXPERT Blue
+Time: 141409, added: TOM GEMS PAD 3
+Time: 141409, added: HARD Blue
+Time: 141409, added: EXPERT Kick
+Time: 141409, added: EXPERT Blue
+Time: 141440, removed: EXPERT Kick
+Time: 141500, added: EXPERT Kick
+Time: 141520, removed: EXPERT Kick
+Time: 141580, added: EASY Red
+Time: 141580, added: HARD Green
+Time: 141580, added: MEDIUM Red
+Time: 141580, added: EXPERT Green
+Time: 141580, added: HARD Red
+Time: 141580, added: EXPERT Kick
+Time: 141580, added: EXPERT Red
+Time: 141580, added: MEDIUM Green
+Time: 141600, removed: MEDIUM Red
+Time: 141600, removed: EXPERT Green
+Time: 141600, removed: HARD Red
+Time: 141600, removed: EASY Red
+Time: 141600, removed: EXPERT Red
+Time: 141600, removed: MEDIUM Green
+Time: 141600, removed: HARD Green
+Time: 141660, added: MEDIUM Red
+Time: 141660, added: EXPERT Green
+Time: 141660, added: HARD Red
+Time: 141660, added: EASY Red
+Time: 141660, added: EXPERT Red
+Time: 141660, added: MEDIUM Green
+Time: 141660, added: HARD Green
+Time: 143040, added: TOM GEMS PAD 2
+Time: 143200, added: TOM GEMS PAD 3
+Time: 143360, added: TOM GEMS PAD 3
+Time: 144000, added: TOM GEMS PAD 3
+Time: 144080, added: TOM GEMS PAD 3
+Time: 144160, added: TOM GEMS PAD 3
+Time: 144240, added: TOM GEMS PAD 3
+Time: 147840, added: TOM GEMS PAD 2
+Time: 148800, added: TOM GEMS PAD 2
+Time: 149280, added: TOM GEMS PAD 2
+Time: 149440, added: TOM GEMS PAD 2
+Time: 149600, added: TOM GEMS PAD 3
+Time: 150720, added: TOM GEMS PAD 2
+Time: 167040, added: TOM GEMS PAD 2
+Time: 167200, added: TOM GEMS PAD 3
+Time: 224160, added: TOM GEMS PAD 2
+Time: 224400, added: TOM GEMS PAD 3
+Time: 225360, added: TOM GEMS PAD 3, TOM GEMS PAD 4, TOM GEMS PAD 2
+Time: 249600, added: TOM GEMS PAD 2
+Time: 272160, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 272640, added: TOM GEMS PAD 2
+Time: 273600, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 273840, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 274080, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 274320, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 274560, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 274800, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 275040, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 275280, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 294480, added: TOM GEMS PAD 2
+Time: 295620, added: TOM GEMS PAD 3
+Time: 318460, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 336000, added: TOM GEMS PAD 2
+Time: 347520, added: TOM GEMS PAD 2
+Time: 363840, added: TOM GEMS PAD 2
+Time: 364320, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 364800, added: TOM GEMS PAD 2
+Time: 376213, added: TOM GEMS PAD 2
+Time: 376453, added: TOM GEMS PAD 2
+Time: 385437, added: TOM GEMS PAD 2
+Time: 385500, added: TOM GEMS PAD 2
+Time: 386160, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 386880, added: TOM GEMS PAD 3, TOM GEMS PAD 4
+Time: 387600, added: TOM GEMS PAD 2
+Time: 387840, added: TOM GEMS PAD 2
+Time: 399120, added: TOM GEMS PAD 2
+Time: 399360, added: TOM GEMS PAD 3
+Text differences found in track 'PART DRUMS':
+Time: 401279, Text event changed from '[no event]' to '[idle_realtime]'
+Time: 401280, Text event changed from '[idle_realtime]' to '[no event]'

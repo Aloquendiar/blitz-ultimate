@@ -1,0 +1,55 @@
+Differences found in track 'PART DRUMS':
+Time: 40080, added: TOM GEMS PAD 2
+Time: 40200, added: TOM GEMS PAD 2
+Time: 40320, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 40440, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 40560, added: TOM GEMS PAD 2
+Time: 40680, added: TOM GEMS PAD 2
+Time: 44280, added: TOM GEMS PAD 2
+Time: 44400, added: TOM GEMS PAD 2
+Time: 45480, added: TOM GEMS PAD 2
+Time: 45600, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 45720, added: TOM GEMS PAD 3
+Time: 49080, added: TOM GEMS PAD 2
+Time: 49200, added: TOM GEMS PAD 2
+Time: 50280, added: TOM GEMS PAD 2
+Time: 50400, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 50520, added: TOM GEMS PAD 3
+Time: 65520, added: TOM GEMS PAD 2
+Time: 65640, added: TOM GEMS PAD 2
+Time: 94800, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 94920, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 95040, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 95160, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 95280, added: TOM GEMS PAD 2
+Time: 95400, added: TOM GEMS PAD 2
+Time: 99000, added: TOM GEMS PAD 2
+Time: 99120, added: TOM GEMS PAD 2
+Time: 100200, added: TOM GEMS PAD 2
+Time: 100320, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 100440, added: TOM GEMS PAD 3
+Time: 103800, added: TOM GEMS PAD 2
+Time: 103920, added: TOM GEMS PAD 2
+Time: 119040, added: TOM GEMS PAD 4
+Time: 119160, added: TOM GEMS PAD 4
+Time: 119280, added: TOM GEMS PAD 4
+Time: 119400, added: TOM GEMS PAD 4
+Time: 119640, added: TOM GEMS PAD 4
+Time: 119760, added: TOM GEMS PAD 4
+Time: 120120, added: TOM GEMS PAD 4
+Time: 120240, added: TOM GEMS PAD 4
+Time: 120480, added: TOM GEMS PAD 4
+Time: 120600, added: TOM GEMS PAD 4
+Time: 120960, added: TOM GEMS PAD 4
+Time: 121080, added: TOM GEMS PAD 4
+Time: 121200, added: TOM GEMS PAD 4
+Time: 121320, added: TOM GEMS PAD 4
+Time: 121560, added: TOM GEMS PAD 4
+Time: 121680, added: TOM GEMS PAD 4
+Time: 122040, added: TOM GEMS PAD 4
+Time: 122160, added: TOM GEMS PAD 4
+Time: 122400, added: TOM GEMS PAD 4
+Time: 122520, added: TOM GEMS PAD 4
+Text differences found in track 'PART DRUMS':
+Time: 144479, Text event changed from '[no event]' to '[idle_realtime]'
+Time: 144480, Text event changed from '[idle_realtime]' to '[no event]'

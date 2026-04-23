@@ -1,0 +1,33 @@
+New track in update: 'HARM1'
+New track in update: 'HARM2'
+New track in update: 'HARM3'
+Differences found in track 'PART DRUMS':
+Time: 45840, added: TOM GEMS PAD 2
+Time: 45960, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 46080, added: TOM GEMS PAD 3
+Time: 72480, added: TOM GEMS PAD 2
+Time: 72600, added: TOM GEMS PAD 2
+Time: 72720, added: TOM GEMS PAD 3
+Time: 72840, added: TOM GEMS PAD 3
+Time: 72960, added: TOM GEMS PAD 3
+Time: 108960, added: TOM GEMS PAD 2
+Time: 109080, added: TOM GEMS PAD 2
+Time: 110640, added: TOM GEMS PAD 2
+Time: 110760, added: TOM GEMS PAD 2
+Time: 111120, added: TOM GEMS PAD 3
+Time: 111240, added: TOM GEMS PAD 3
+Time: 111360, added: TOM GEMS PAD 3
+Time: 135840, added: TOM GEMS PAD 2
+Time: 135960, added: TOM GEMS PAD 2
+Time: 141120, added: TOM GEMS PAD 2
+Time: 141240, added: TOM GEMS PAD 2
+Time: 149280, added: TOM GEMS PAD 2
+Time: 149400, added: TOM GEMS PAD 2
+Time: 149520, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 149640, added: TOM GEMS PAD 3
+Time: 149760, added: TOM GEMS PAD 3
+Time: 156960, added: TOM GEMS PAD 2
+Time: 157080, added: TOM GEMS PAD 2
+Time: 157200, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 157320, added: TOM GEMS PAD 3
+Time: 157440, added: TOM GEMS PAD 3

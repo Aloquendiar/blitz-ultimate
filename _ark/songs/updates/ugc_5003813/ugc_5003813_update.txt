@@ -1,0 +1,40 @@
+Differences found in track 'PART DRUMS':
+Time: 5040, added: TOM GEMS PAD 2
+Time: 5400, added: TOM GEMS PAD 2
+Time: 24960, added: TOM GEMS PAD 4
+Time: 25440, added: TOM GEMS PAD 3
+Time: 32520, added: TOM GEMS PAD 2
+Time: 32760, added: TOM GEMS PAD 2
+Time: 38280, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 38640, added: TOM GEMS PAD 4
+Time: 39000, added: TOM GEMS PAD 4
+Time: 39360, added: TOM GEMS PAD 4
+Time: 39720, added: TOM GEMS PAD 4
+Time: 47760, added: TOM GEMS PAD 2
+Time: 48000, added: TOM GEMS PAD 2
+Time: 63360, added: TOM GEMS PAD 4
+Time: 63840, added: TOM GEMS PAD 3
+Time: 70920, added: TOM GEMS PAD 2
+Time: 71160, added: TOM GEMS PAD 2
+Time: 76440, added: TOM GEMS PAD 3
+Time: 76680, added: TOM GEMS PAD 4
+Time: 77040, added: TOM GEMS PAD 4
+Time: 77400, added: TOM GEMS PAD 4
+Time: 77760, added: TOM GEMS PAD 4
+Time: 78120, added: TOM GEMS PAD 4
+Time: 86160, added: TOM GEMS PAD 2
+Time: 86400, added: TOM GEMS PAD 2
+Time: 125280, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 128280, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 128880, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 131640, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 132720, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 135000, added: TOM GEMS PAD 4, TOM GEMS PAD 3
+Time: 135480, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 136320, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 154560, added: TOM GEMS PAD 2
+Time: 154800, added: TOM GEMS PAD 2
+Time: 170160, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 170880, added: TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 185520, added: TOM GEMS PAD 4, TOM GEMS PAD 2, TOM GEMS PAD 3
+Time: 186120, added: TOM GEMS PAD 4, TOM GEMS PAD 2, TOM GEMS PAD 3

@@ -42,7 +42,7 @@
 (song_mgr
    (alt_dirs
       ("songs_download"))
-   (max_song_count 16000) ; 8000 by default so revert if it breaks stuff. i had no clue this game had a song limit until i saw it here cuz of how high it is.
+   (max_song_count 8000) ; 8000 by default so revert if it breaks stuff. i had no clue this game had a song limit until i saw it here cuz of how high it is.
    (ignore_range)
    (ignore_fake_in_song_list TRUE))
 (missing_song_data

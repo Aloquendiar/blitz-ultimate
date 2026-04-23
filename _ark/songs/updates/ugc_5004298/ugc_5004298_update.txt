@@ -1,0 +1,21 @@
+Differences found in track 'PART DRUMS':
+Time: 21480, added: TOM GEMS PAD 2
+Time: 40200, added: TOM GEMS PAD 2
+Time: 40680, added: TOM GEMS PAD 3
+Time: 45000, added: TOM GEMS PAD 2
+Time: 45480, added: TOM GEMS PAD 3
+Time: 63240, added: TOM GEMS PAD 2
+Time: 63720, added: TOM GEMS PAD 3
+Time: 68040, added: TOM GEMS PAD 2
+Time: 68520, added: TOM GEMS PAD 3
+Time: 105480, added: TOM GEMS PAD 2
+Time: 105960, added: TOM GEMS PAD 3
+Time: 110280, added: TOM GEMS PAD 2
+Time: 110760, added: TOM GEMS PAD 3
+Time: 218760, added: TOM GEMS PAD 2
+Time: 219240, added: TOM GEMS PAD 3
+Time: 223560, added: TOM GEMS PAD 2
+Time: 224040, added: TOM GEMS PAD 3
+Text differences found in track 'PART DRUMS':
+Time: 237599, Text event changed from '[no event]' to '[idle_realtime]'
+Time: 237600, Text event changed from '[idle_realtime]' to '[no event]'

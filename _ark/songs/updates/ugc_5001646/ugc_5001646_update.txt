@@ -1,0 +1,12 @@
+New track in update: 'HARM1'
+New track in update: 'HARM2'
+New track in update: 'HARM3'
+Differences found in track 'PART DRUMS':
+Time: 42240, removed: DRUM FILL, DRUM FILL, DRUM FILL, DRUM FILL, DRUM FILL (use all 5)
+Time: 43200, removed: DRUM FILL, DRUM FILL, DRUM FILL, DRUM FILL, DRUM FILL (use all 5)
+Time: 89040, added: TOM GEMS PAD 4
+Time: 89160, added: TOM GEMS PAD 4
+Time: 112080, added: TOM GEMS PAD 3
+Time: 112200, added: TOM GEMS PAD 3
+Time: 137040, added: TOM GEMS PAD 3
+Time: 137160, added: TOM GEMS PAD 3

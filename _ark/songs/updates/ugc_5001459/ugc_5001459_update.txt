@@ -1,0 +1,57 @@
+Differences found in track 'PART DRUMS':
+Time: 18240, added: TOM GEMS PAD 3
+Time: 18360, added: TOM GEMS PAD 3
+Time: 34080, added: TOM GEMS PAD 3
+Time: 34200, added: TOM GEMS PAD 3
+Time: 49200, added: TOM GEMS PAD 3
+Time: 49320, added: TOM GEMS PAD 3
+Time: 64800, added: TOM GEMS PAD 3
+Time: 64920, added: TOM GEMS PAD 3
+Time: 77760, added: TOM GEMS PAD 2
+Time: 77880, added: TOM GEMS PAD 2
+Time: 80280, added: TOM GEMS PAD 2
+Time: 80400, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 80520, added: TOM GEMS PAD 3
+Time: 80640, added: TOM GEMS PAD 3
+Time: 95520, added: TOM GEMS PAD 3
+Time: 95640, added: TOM GEMS PAD 3
+Time: 110640, added: TOM GEMS PAD 3
+Time: 110760, added: TOM GEMS PAD 3
+Time: 126240, added: TOM GEMS PAD 3
+Time: 126360, added: TOM GEMS PAD 3
+Time: 139200, added: TOM GEMS PAD 2
+Time: 139320, added: TOM GEMS PAD 2
+Time: 175680, added: TOM GEMS PAD 2
+Time: 175800, added: TOM GEMS PAD 2
+Time: 182400, added: TOM GEMS PAD 2
+Time: 182520, added: TOM GEMS PAD 2
+Time: 182640, added: TOM GEMS PAD 2
+Time: 182760, added: TOM GEMS PAD 2
+Time: 182880, added: TOM GEMS PAD 3
+Time: 183000, added: TOM GEMS PAD 3
+Time: 187200, added: TOM GEMS PAD 2
+Time: 187320, added: TOM GEMS PAD 2
+Time: 187680, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 187800, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 201600, added: TOM GEMS PAD 2
+Time: 201720, added: TOM GEMS PAD 2
+Time: 202800, added: TOM GEMS PAD 3
+Time: 202920, added: TOM GEMS PAD 3
+Time: 216000, added: TOM GEMS PAD 2
+Time: 216120, added: TOM GEMS PAD 2
+Time: 218520, added: TOM GEMS PAD 2
+Time: 218640, added: TOM GEMS PAD 3, TOM GEMS PAD 2
+Time: 218760, added: TOM GEMS PAD 3
+Time: 218880, added: TOM GEMS PAD 3
+Time: 231360, added: TOM GEMS PAD 2
+Time: 231480, added: TOM GEMS PAD 2
+Time: 233280, added: TOM GEMS PAD 2
+Time: 233400, added: TOM GEMS PAD 2
+Time: 235200, added: TOM GEMS PAD 2
+Time: 235320, added: TOM GEMS PAD 2
+Time: 237120, added: TOM GEMS PAD 2
+Time: 237240, added: TOM GEMS PAD 2
+Time: 237360, added: TOM GEMS PAD 3
+Time: 237480, added: TOM GEMS PAD 3
+Time: 237600, added: TOM GEMS PAD 4
+Time: 237720, added: TOM GEMS PAD 4
